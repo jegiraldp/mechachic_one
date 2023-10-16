@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  font-size: 1.6rem;
+}
+
+.metrics_chart {
+  margin: 5rem auto;
+}
+
+.form_register p {
+  font-size: x-small;
+  color: red;
+  margin-bottom: 1rem;
+}
