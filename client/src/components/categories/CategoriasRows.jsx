@@ -12,9 +12,7 @@ function CategoriasRows() {
     cargarCategories();
   }, []);
 
-  const onclick = () => {
-    cambiar(3);
-  };
+  
   return (
     <>
       {categories.map((cate) => (

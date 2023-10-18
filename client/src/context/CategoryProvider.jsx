@@ -1,4 +1,4 @@
-import { useContext, useState, createContext } from "react";
+import { useContext, useState, createContext, useEffect } from "react";
 import {
   getCategoriesRequest,
   deleteCategoryRequest,
@@ -20,6 +20,27 @@ export const useCategory = () => {
 export const CategoryContextProvider = ({ children }) => {
   //const [categorias, setCategorias] = useState(1);
   const [categories, setCategories] = useState([]);
+  const [errors, setErrors] = useState([]);
+  const [mensaje, setMensaje] = useState('');
+  useEffect(() => {
+    if (errors.length > 0) {
+      const timer = setTimeout(() => {
+        setErrors([]);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [errors]);
+
+
+  useEffect(() => {
+    if (mensaje) {
+      const timer = setTimeout(() => {
+        setMensaje('');
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [mensaje]); 
+  
 
   //cargar Categories
   async function cargarCategories() {
@@ -43,10 +64,12 @@ export const CategoryContextProvider = ({ children }) => {
   //createCategory
   const createCategory = async (category) => {
     try {
-      await createCategoryRequest(category);
-      //setCategories([...categories, respon.data]);
+     await createCategoryRequest(category);
+      setMensaje("Category -"+category.nombre+"-  created 👌");
+      
     } catch (error) {
       console.log(error);
+      setErrors(error.response.data);
     }
   };
 
@@ -69,11 +92,6 @@ export const CategoryContextProvider = ({ children }) => {
     }
   };
 
-  /*const cambiar = (num) => {
-    console.log("hola categoria")
-    setCategories(num);
-  };*/
-
   return (
     <CategoryContext.Provider
       value={{
@@ -83,6 +101,9 @@ export const CategoryContextProvider = ({ children }) => {
         createCategory,
         getCategory,
         updateCategory,
+        errors,
+        mensaje,
+        
       }}
     >
       {children}

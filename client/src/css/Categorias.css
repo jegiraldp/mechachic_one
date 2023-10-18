@@ -85,9 +85,17 @@ input{
   border-radius: 5px;
   box-sizing: border-box;
   font-size: 16px;
-  width: 40%;
+  width: 60%;
   display: block;
   margin-bottom: 10px;
+}
+
+.categorias form .elError {
+  padding: 0.1rem 1rem 1rem 1rem;
+  color: red;
+  font-size: small;
+  font-weight: bold;
+  
 }
 
 .formulario button {
@@ -108,4 +116,19 @@ input{
 
 .formulario button:hover {
   background-color: rgb(79, 79, 79);
+}
+
+.errorCategory {
+  padding: 0.1rem 1rem 1rem 1rem;
+  color: red;
+  font-size: small;
+  font-weight: bold;
+}
+
+.elMsg {
+  padding: 0.1rem 1rem 1rem 1rem;
+  color: rgb(5, 63, 5);
+  font-size: small;
+
+ 
 }

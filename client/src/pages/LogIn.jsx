@@ -40,7 +40,7 @@ function LogIn() {
       <form className="login__form" onSubmit={onSubmit}>
         <h2>Log In</h2>
         {signinErrors.map((e, i) => (
-          <div className="error" key={i}>
+          <div className="errorLogin" key={i}>
             {e}
           </div>
         ))}

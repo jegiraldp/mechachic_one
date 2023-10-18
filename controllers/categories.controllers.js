@@ -1,5 +1,7 @@
 import { pool } from "../db.js";
 
+
+
 export const getCategories = async (req, res) => {
   try {
     const [result] = await pool.query(
@@ -28,6 +30,14 @@ export const getCategory = async (req, res) => {
 export const newCategory = async (req, res) => {
   try {
     const { nombre } = req.body;
+    const [categoria] = await pool.query(
+      "select * from categorias where nombre = ?",
+      [nombre]
+    );
+
+    if(categoria.length>0)
+      return res.status(400).json(["Categorie´s name already exists ⚠️"]);
+    
     const [result]=await pool.query("insert into categorias (nombre) values (?)", [nombre]);
     res.json(result);
   } catch (error) {
