@@ -19,7 +19,8 @@ function CategoriasRows() {
         <tr key={cate.id}>
           <td>{cate.nombre}</td>
           <td className="opciones">
-            <span onClick={() => navigate(`/categorias/${cate.id}`, onclick)}>
+         
+            <span onClick={() => navigate(`/categorias/edit/${cate.id}`)}>
               ✏️
             </span>
           </td>

@@ -53,4 +53,4 @@ app.use(salesdetailRoutes);
 app.use(usersRoutes);
 
 app.listen(PORT);
-console.log("Server Running on port.. " + PORT);
+console.log("Server Running on port " + PORT);

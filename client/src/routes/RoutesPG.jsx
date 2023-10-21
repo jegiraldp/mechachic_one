@@ -5,7 +5,6 @@ import Informes from "../pages/informes/Informes";
 import Trabajadores from "../pages/trabajadores/Trabajadores";
 import Register from "../components/users/Register";
 import LogIn from "../pages/LogIn";
-import LogInn from "../pages/LogIn";
 import NotFound from "../pages/NotFound";
 import Metricas from "../pages/Metricas";
 import Taller from "../pages/Taller/Taller";
@@ -14,7 +13,7 @@ import Caja from "../pages/Caja/Caja";
 import Repuestos from "../pages/inventario/Repuestos";
 import CrearRepuestos from "../components/Repuestos/CrearRepuestos";
 import Categorias from "../pages/inventario/Categorias";
-import NuevaCategoria from "../components/categories/NuevaCategoria";
+import CategoriaForm from "../components/categories/CategoriaForm";
 
 
 function RoutesPG() {
@@ -59,7 +58,11 @@ function RoutesPG() {
       />
       <Route
         path="/categorias/new"
-        element={isAuthenticated ? <NuevaCategoria /> : <LogIn />}
+        element={isAuthenticated ? <CategoriaForm /> : <LogIn />}
+      />
+      <Route
+        path="/categorias/edit/:id"
+        element={isAuthenticated ? <CategoriaForm /> : <LogIn />}
       />
       {/* Contactos */}
       <Route

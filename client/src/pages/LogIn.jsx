@@ -28,7 +28,7 @@ function LogIn() {
 
   const onSubmit = handleSubmit((data) => {
     //event.preventDefault();
-    console.log(data)
+    //console.log(data)
     signIn(data);
     setValue("userName", "");
     setValue("password", "");
