@@ -3,66 +3,34 @@ import { Link, NavLink } from "react-router-dom";
 import "../css/Sidebar.css";
 import * as FaIcons from "react-icons/fa";
 
-function Sidebar() {
+function LeftMenu() {
   const [activeMenu, setActiveMenu] = useState(null);
   const handleMenuClick = (menu) => {
     if (activeMenu === menu) {
-      // Si el mismo menú se hace clic nuevamente, ciérralo.
       setActiveMenu(null);
     } else {
       setActiveMenu(menu);
     }
   };
 
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
-
-  const handleToggleSidebar = () => {
-    setIsSidebarCollapsed(!isSidebarCollapsed);
-  };
-
-  const sidebarClass = isSidebarCollapsed ? "collapsed" : "Sidebar";
   return (
-    <section className={sidebarClass}>
-      <button
-        className="toggle-button"
-        onClick={() => {
-          handleToggleSidebar();
-          handleMenuClick("sidebar");
-        }}
-      >
-        {isSidebarCollapsed ? (
-          <FaIcons.FaAngleRight /> // Icono para expandir el Sidebar
-        ) : (
-          <FaIcons.FaAngleLeft /> // Icono para contraer el Sidebar
-        )}
-        {activeMenu === "sidebar"}
-      </button>
+    <section className="Sidebar">
       <div className="sidebar-content">
-        <h1 className="sidebar-content__titulo">Menu</h1>
+        <h2 className="sidebar-content__titulo">Menu</h2>
         <ul>
-          <li
-            className="Sidebar__princ"
-            onClick={() => handleMenuClick("metrics")}
-          >
-            {activeMenu === "metrics"}
-            <NavLink to="/metricas" className="icon" activeclassname="active">
-              <FaIcons.FaChartBar /> Metricss
-            </NavLink>
-          </li>
           <li>
             <div
               className="Sidebar__princ"
               onClick={() => handleMenuClick("taller")}
             >
-              <FaIcons.FaToolbox /> Workshop
+              <FaIcons.FaBoxes />Workshop
             </div>
             {activeMenu === "taller" && (
               <ul className="submenu">
-                {}
                 <li>
                   <NavLink
                     className="icon"
-                    to="/taller"
+                    to="/orders"
                     activeclassname="active"
                   >
                     Orders
@@ -71,7 +39,7 @@ function Sidebar() {
                 <li>
                   <NavLink
                     className="icon"
-                    to="/taller"
+                    to="/budget"
                     activeclassname="active"
                   >
                     Budget
@@ -80,7 +48,7 @@ function Sidebar() {
                 <li>
                   <NavLink
                     className="icon"
-                    to="/taller"
+                    to="/vehicles"
                     activeclassname="active"
                   >
                     Vehicles
@@ -89,7 +57,7 @@ function Sidebar() {
                 <li>
                   <NavLink
                     className="icon"
-                    to="/taller"
+                    to="/schedule"
                     activeclassname="active"
                   >
                     Schedule
@@ -103,15 +71,14 @@ function Sidebar() {
               className="Sidebar__princ"
               onClick={() => handleMenuClick("contactos")}
             >
-              <FaIcons.FaUserCircle /> Contacts
+              <FaIcons.FaUserCircle  />Contacts
             </div>
             {activeMenu === "contactos" && (
               <ul className="submenu">
-                {}
                 <li>
                   <NavLink
                     className="icon"
-                    to="/contactos"
+                    to="/customers"
                     activeclassname="active"
                   >
                     Customers
@@ -120,7 +87,7 @@ function Sidebar() {
                 <li>
                   <NavLink
                     className="icon"
-                    to="/contactos"
+                    to="/providers"
                     activeclassname="active"
                   >
                     Providers
@@ -134,15 +101,14 @@ function Sidebar() {
               className="Sidebar__princ"
               onClick={() => handleMenuClick("inventario")}
             >
-              <FaIcons.FaBoxes /> Inventory
+              <FaIcons.FaBoxes />Inventory
             </div>
             {activeMenu === "inventario" && (
               <ul className="submenu">
-                {}
                 <li>
                   <NavLink
                     className="icon"
-                    to="/repuestos"
+                    to="/repuestoss"
                     activeclassname="active"
                   >
                     Spare parts
@@ -169,28 +135,40 @@ function Sidebar() {
               </ul>
             )}
           </li>
+
           <li>
             <div
               className="Sidebar__princ"
               onClick={() => handleMenuClick("caja")}
             >
-              <FaIcons.FaCashRegister /> Cash Register
+              <FaIcons.FaCashRegister  />Cash Register
             </div>
             {activeMenu === "caja" && (
               <ul className="submenu">
-                {}
                 <li>
-                  <NavLink className="icon" to="/caja" activeclassname="active">
+                  <NavLink
+                    className="icon"
+                    to="/status"
+                    activeclassname="active"
+                  >
                     Status
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="icon" to="/caja" activeclassname="active">
+                  <NavLink
+                    className="icon"
+                    to="/closures"
+                    activeclassname="active"
+                  >
                     Closures
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="icon" to="/caja" activeclassname="active">
+                  <NavLink
+                    className="icon"
+                    to="/checking"
+                    activeclassname="active"
+                  >
                     Checking accounts
                   </NavLink>
                 </li>
@@ -198,20 +176,20 @@ function Sidebar() {
             )}
           </li>
 
+
           <li>
             <div
               className="Sidebar__princ"
-              onClick={() => handleMenuClick("admini")}
+              onClick={() => handleMenuClick("admin")}
             >
-              <FaIcons.FaUserCog /> Admin
+              <FaIcons.FaUserCog   />Admin
             </div>
-            {activeMenu === "admini" && (
+            {activeMenu === "admin" && (
               <ul className="submenu">
-                {}
                 <li>
                   <NavLink
                     className="icon"
-                    to="/administracion"
+                    to="/buyes"
                     activeclassname="active"
                   >
                     Buyes
@@ -220,30 +198,40 @@ function Sidebar() {
                 <li>
                   <NavLink
                     className="icon"
-                    to="/administracion"
+                    to="/sells"
                     activeclassname="active"
                   >
                     Sells
                   </NavLink>
                 </li>
+                
               </ul>
             )}
           </li>
+
 
           <li>
             <div
               className="Sidebar__princ"
               onClick={() => handleMenuClick("informes")}
             >
-              <FaIcons.FaStickyNote /> Reports
+              <FaIcons.FaStickyNote    />Reports
             </div>
             {activeMenu === "informes" && (
               <ul className="submenu">
-                {}
                 <li>
                   <NavLink
                     className="icon"
-                    to="/informes"
+                    to="/metricas"
+                    activeclassname="active"
+                  >
+                    Metrics
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    className="icon"
+                    to="/reportcustomers"
                     activeclassname="active"
                   >
                     Customers
@@ -252,29 +240,29 @@ function Sidebar() {
                 <li>
                   <NavLink
                     className="icon"
-                    to="/informes"
+                    to="/reportvehicles"
                     activeclassname="active"
                   >
                     Vehicles
                   </NavLink>
                 </li>
+                
               </ul>
             )}
           </li>
           <li>
             <div
               className="Sidebar__princ"
-              onClick={() => handleMenuClick("trabajodores")}
+              onClick={() => handleMenuClick("trabajadores")}
             >
-              <FaIcons.FaUsers /> Team
+              <FaIcons.FaUsers/>Teams
             </div>
-            {activeMenu === "trabajodores" && (
+            {activeMenu === "trabajadores" && (
               <ul className="submenu">
-                {}
                 <li>
                   <NavLink
                     className="icon"
-                    to="/trabajadores"
+                    to="/employees"
                     activeclassname="active"
                   >
                     Employees
@@ -283,56 +271,16 @@ function Sidebar() {
                 <li>
                   <NavLink
                     className="icon"
-                    to="/trabajadores"
+                    to="/payroll"
                     activeclassname="active"
                   >
                     Payroll
                   </NavLink>
                 </li>
+                
+                
               </ul>
             )}
-          </li>
-        </ul>
-        <ul className="iconos_constraidos">
-          <li>
-            <NavLink to="/metricas">
-              <FaIcons.FaChartBar />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/taller">
-              <FaIcons.FaToolbox />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/administracion">
-              <FaIcons.FaUserCog />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/caja">
-              <FaIcons.FaCashRegister />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/repuestos">
-              <FaIcons.FaBoxes />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/contactos">
-              <FaIcons.FaUserCircle />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/informes">
-              <FaIcons.FaStickyNote />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/trabajadores">
-              <FaIcons.FaUsers />
-            </NavLink>
           </li>
         </ul>
       </div>
@@ -340,4 +288,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default LeftMenu;

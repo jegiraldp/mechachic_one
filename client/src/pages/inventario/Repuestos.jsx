@@ -5,12 +5,12 @@ import "../../css/Repuestos.css";
 import Navbar from "../../components/Navbar";
 
 function Repuestos() {
-  const { Repuestos } = useElement();
+  const { respuestos } = useElement();
 
   return (
     <>
       <Navbar />
-      {Repuestos === 1 ? <TablaRepuestos /> : <CrearRepuestos />}
+      {respuestos.length > 0 ? <TablaRepuestos /> : <CrearRepuestos />}
     </>
   );
 }

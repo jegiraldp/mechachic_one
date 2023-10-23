@@ -18,7 +18,7 @@ export const useElement = () => {
 };
 
 export const ElementContextProvider = ({ children }) => {
-  const [Repuestos, setRepuestos] = useState(1);
+  const [repuestos, setRepuestos] = useState(1);
   const [elements, setElements] = useState([]);
 
   //cargar Elements
@@ -81,7 +81,7 @@ export const ElementContextProvider = ({ children }) => {
         getElement,
         updateElement,
         cambiar,
-        Repuestos,
+        repuestos,
       }}
     >
       {children}

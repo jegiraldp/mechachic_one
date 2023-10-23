@@ -78,9 +78,9 @@ export const deleteCategory = async (req, res) => {
     );
     if (resultado.affectedRows === 0)
       return res.status(404).json({ mensaje: "Category does not exists" });
-    //return res.sendStatus(204);
-    res.json("Category deleted");
+   
+    res.json("Category deleted ..✔️");
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+    return res.status(500).json(["Database Error"]);
   }
 };

@@ -137,3 +137,7 @@ cursor: pointer;
 
 font-weight: bold;
 }
+
+span.imgOpcion:hover{
+  font-size: 18px;
+}

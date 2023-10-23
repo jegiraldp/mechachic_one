@@ -3,27 +3,22 @@
     justify-content: space-between;
     align-items: center;
     background-color: rgb(37,36,64);
-    border-bottom: 1px solid white;
+   /* border-bottom: 1px solid white;*/
     color: white;
     font-weight: 900;
-    padding: 2rem;
-  }
-  
-  .navbar__titulo{
-    font-size: 3.0rem;
-    flex-grow: 1;
-    text-align: center;
+    padding-top: 2rem;
+    padding-right: 2rem;
   }
   
   .navbar__boton {
     cursor: pointer;
     background-color: black;
     color: white;
-    font-size: 1.65rem;
+    font-size: 1.3rem;
     padding: 0.9rem;
    
     border-radius: 1rem;
-    margin-right: auto;
+    margin-left: auto;
     transition: all 0.5s ease;
   }
   

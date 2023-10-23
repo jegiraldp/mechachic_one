@@ -21,7 +21,7 @@ export const CategoryContextProvider = ({ children }) => {
   //const [categorias, setCategorias] = useState(1);
   const [categories, setCategories] = useState([]);
   const [errors, setErrors] = useState([]);
-  const [mensaje, setMensaje] = useState('');
+  const [mensaje, setMensaje] = useState("");
   useEffect(() => {
     if (errors.length > 0) {
       const timer = setTimeout(() => {
@@ -31,16 +31,14 @@ export const CategoryContextProvider = ({ children }) => {
     }
   }, [errors]);
 
-
   useEffect(() => {
     if (mensaje) {
       const timer = setTimeout(() => {
-        setMensaje('');
+        setMensaje("");
       }, 4000);
       return () => clearTimeout(timer);
     }
-  }, [mensaje]); 
-  
+  }, [mensaje]);
 
   //cargar Categories
   async function cargarCategories() {
@@ -53,19 +51,17 @@ export const CategoryContextProvider = ({ children }) => {
     try {
       await deleteCategoryRequest(id);
       setCategories(categories.filter((category) => category.id !== id));
-      return null;
+      
     } catch (error) {
-      return "DB error ";
-      // console.log("Delete Error");
+      setErrors(error.response.data);
     }
   };
 
   //createCategory
   const createCategory = async (category) => {
     try {
-     await createCategoryRequest(category);
+      await createCategoryRequest(category);
       setMensaje("Category created ✔️");
-      
     } catch (error) {
       setErrors(error.response.data);
     }
@@ -83,11 +79,11 @@ export const CategoryContextProvider = ({ children }) => {
 
   //update category
   const updateCategory = async (id, newFields) => {
-   try {
-      const res=await updateCategoryRequest(id, newFields);
+    try {
+      const res = await updateCategoryRequest(id, newFields);
       setMensaje(res.data);
     } catch (error) {
-      setErrors(error.response.data)
+      setErrors(error.response.data);
     }
   };
 
@@ -102,7 +98,6 @@ export const CategoryContextProvider = ({ children }) => {
         updateCategory,
         errors,
         mensaje,
-        
       }}
     >
       {children}

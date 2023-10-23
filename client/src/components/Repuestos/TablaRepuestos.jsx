@@ -10,7 +10,7 @@ function TablaRepuestos() {
   return (
     <section className="repuestos">
       <section className="repuestos__title">
-        <h3 className="repuestos__titulo">Repuestos</h3>
+        <h3 className="repuestos__titulo">Spare parts</h3>
         <span className="repuestos__boton" onClick={onclick}>
           <FaPlusCircle style={{ color: 'darkorange', fontSize: '0.7em' }}/>
         </span>
@@ -18,12 +18,12 @@ function TablaRepuestos() {
       <table className="repuestos__tabla" >
         <thead>
           <tr align="left">
-            <th>Código</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Categoría</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>

@@ -1,4 +1,4 @@
-import Navbar from "./components/Sidebar";
+import LeftMenu from "./components/LeftMenu.jsx";
 import "./css/App.css";
 
 import { useAuth } from "./context/AuthContext";
@@ -10,7 +10,7 @@ function App() {
   return (
     <main>
       <section className="flex">
-        {isAuthenticated && <Navbar />}
+        {isAuthenticated && <LeftMenu />}
         <section className="content">
           <RoutesPG/>
         </section>

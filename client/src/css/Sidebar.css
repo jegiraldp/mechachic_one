@@ -1,10 +1,7 @@
 .Sidebar {
   width: 28rem;
   height: 100vh;
-  background-color: rgb(37,36,64);
-  position: sticky;
-  top: 0;
-  transition: width 0.5s ease;
+  background-color: rgb(37, 36, 64);
   
 }
 
@@ -16,7 +13,7 @@
   gap: 1.2rem;
   text-decoration: none;
   list-style: none;
-  transition: display 3s ease;
+  
 }
 
 .Sidebar ul {
@@ -29,9 +26,7 @@
   transition: border-left 200ms ease, background-color 200ms ease;
   cursor: pointer;
 }
-.Sidebar li {
-  list-style: none;
-}
+
 
 .Sidebar .Sidebar__princ:hover {
   border-left: 2px solid #fbf8f8;
@@ -41,101 +36,44 @@
 }
 
 .Sidebar .submenu li {
-  
   text-align: left;
   justify-content: left;
   background-color: rgb(57, 56, 92);
   width: 100%;
   font-size: 1.5rem;
   padding-left: 1.5rem;
-  color:white
+  color: white;
 }
 
 .Sidebar .submenu li:hover {
-  border-left: 3px solid #1e1e1e;
   background-color: rgb(79, 79, 79);
   transition: border-left 200ms ease, background-color 200ms ease;
   font-style: italic;
+  border-left: 3px solid #fbf8f8;
 }
 
 .active {
   font-weight: 600;
   text-decoration: underline;
   font-style: italic;
-}
-
-.Sidebar .iconos_constraidos {
-  display: none;
-}
-
-.collapsed {
-  width: 5.9rem; /* Ancho reducido cuando está colapsado */
-  height: 100vh;
-  background-color: rgb(37,36,64);
-  color: #1e1e1e;
-  top: 0;
-  position: sticky;
-  transition: width 0.5s ease;
-}
-
-.collapsed .iconos_constraidos li a {
-  position: relative;
-  top: -11rem;
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
-  color: rgb(247, 184, 68);
-  font-size: 3.0rem;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  transition: border-left 150ms ease;
-}
-
-.collapsed .iconos_constraidos li a:hover {
-  border-left: 2px solid #fbf8f8;
-}
-
-.collapsed .Sidebar__princ {
-  display: none;
-  transition: display 3s ease;
-}
-
-/* Estilos para los íconos del botón de colapsar/desplegar */
-.toggle-button {
-  background-color: rgb(37,36,64);
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  margin-top: 0.5rem;
-  padding: 0.5rem 0.75rem 0rem 0.75rem;
-  font-size: 4rem;
-  transition: background-color 0.3s ease;
-  border-radius: 1rem;
-}
-
-.toggle-button:hover {
-  background-color: rgb(35, 35, 35); /* Cambia el color de fondo en el hover */
+  background-color: rgb(65, 63, 105);
+  
 }
 
 .sidebar-content {
   display: flex;
   text-align: center;
   flex-direction: column;
-  height: 100vh; /* Altura máxima del contenido con scroll interno */
+  height: 150vh; /* Altura máxima del contenido con scroll interno */
   overflow-y: auto; /* Agrega un scroll vertical cuando el contenido excede la altura máxima */
   overflow-x: hidden;
 }
 
-.Sidebar .sidebar-content__titulo {
+h2.sidebar-content__titulo {
   color: white;
   font-size: 2.2rem;
   padding-bottom: 2rem;
   border-bottom: 0px solid white;
-}
-
-.collapsed .sidebar-content__titulo {
-  display: none;
 }
 
 .sidebar-content::-webkit-scrollbar {

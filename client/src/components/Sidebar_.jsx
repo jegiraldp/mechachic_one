@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../css/Sidebar.css";
 import * as FaIcons from "react-icons/fa";
-
-function Sidebar() {
+function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
   const handleMenuClick = (menu) => {
+    console.log(menu)
+    console.log(activeMenu)
     if (activeMenu === menu) {
       // Si el mismo menú se hace clic nuevamente, ciérralo.
       setActiveMenu(null);
     } else {
+      
       setActiveMenu(menu);
     }
   };
@@ -46,7 +48,7 @@ function Sidebar() {
           >
             {activeMenu === "metrics"}
             <NavLink to="/metricas" className="icon" activeclassname="active">
-              <FaIcons.FaChartBar /> Metricss
+              <FaIcons.FaChartBar /> Metrics
             </NavLink>
           </li>
           <li>
@@ -58,44 +60,43 @@ function Sidebar() {
             </div>
             {activeMenu === "taller" && (
               <ul className="submenu">
-                {}
-                <li>
-                  <NavLink
-                    className="icon"
-                    to="/taller"
-                    activeclassname="active"
-                  >
-                    Orders
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    className="icon"
-                    to="/taller"
-                    activeclassname="active"
-                  >
-                    Budget
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    className="icon"
-                    to="/taller"
-                    activeclassname="active"
-                  >
-                    Vehicles
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    className="icon"
-                    to="/taller"
-                    activeclassname="active"
-                  >
-                    Schedule
-                  </NavLink>
-                </li>
-              </ul>
+              <li>
+                 <NavLink
+                   className="icon"
+                   to="/categorias"
+                   activeclassname="active"
+                 >
+                   Orders
+                 </NavLink>
+               </li>
+               <li>
+                 <NavLink
+                   className="icon"
+                   to="/categorias"
+                   activeclassname="active"
+                 >
+                   Budget
+                 </NavLink>
+               </li>
+               <li>
+                 <NavLink
+                   className="icon"
+                   to="/categorias"
+                   activeclassname="active"
+                 >
+                   Vehicles
+                 </NavLink>
+               </li>
+               <li>
+                 <NavLink
+                   className="icon"
+                   to="/categorias"
+                   activeclassname="active"
+                 >
+                   Schedule
+                 </NavLink>
+               </li>
+             </ul>
             )}
           </li>
           <li>
@@ -107,7 +108,7 @@ function Sidebar() {
             </div>
             {activeMenu === "contactos" && (
               <ul className="submenu">
-                {}
+                
                 <li>
                   <NavLink
                     className="icon"
@@ -138,8 +139,7 @@ function Sidebar() {
             </div>
             {activeMenu === "inventario" && (
               <ul className="submenu">
-                {}
-                <li>
+               <li>
                   <NavLink
                     className="icon"
                     to="/repuestos"
@@ -197,7 +197,7 @@ function Sidebar() {
               </ul>
             )}
           </li>
-
+          
           <li>
             <div
               className="Sidebar__princ"
@@ -229,7 +229,9 @@ function Sidebar() {
               </ul>
             )}
           </li>
-
+          
+          
+          
           <li>
             <div
               className="Sidebar__princ"
@@ -340,4 +342,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default Navbar;
