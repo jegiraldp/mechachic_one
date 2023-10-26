@@ -18,7 +18,6 @@ export const useCategory = () => {
 };
 
 export const CategoryContextProvider = ({ children }) => {
-  //const [categorias, setCategorias] = useState(1);
   const [categories, setCategories] = useState([]);
   const [errors, setErrors] = useState([]);
   const [mensaje, setMensaje] = useState("");

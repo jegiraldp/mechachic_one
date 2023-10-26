@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import "../css/Sidebar.css";
+import "../css/LeftMenu.css";
 import * as FaIcons from "react-icons/fa";
 
 function LeftMenu() {
@@ -108,7 +108,7 @@ function LeftMenu() {
                 <li>
                   <NavLink
                     className="icon"
-                    to="/repuestoss"
+                    to="/repuestos"
                     activeclassname="active"
                   >
                     Spare parts

@@ -18,11 +18,10 @@ export const useElement = () => {
 };
 
 export const ElementContextProvider = ({ children }) => {
-  const [repuestos, setRepuestos] = useState(1);
   const [elements, setElements] = useState([]);
 
   //cargar Elements
-  async function cargarElements() {
+  async function getElements() {
     const respues = await getElementsRequest();
     setElements(respues.data);
   }
@@ -67,21 +66,17 @@ export const ElementContextProvider = ({ children }) => {
     }
   };
 
-  const cambiar = (num) => {
-    setRepuestos(num);
-  };
 
   return (
     <ElementContext.Provider
       value={{
-        cargarElements,
+        getElements,
         elements,
         createElement,
         deleteElement,
         getElement,
         updateElement,
-        cambiar,
-        repuestos,
+        
       }}
     >
       {children}

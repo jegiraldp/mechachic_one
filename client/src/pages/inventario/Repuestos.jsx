@@ -1,16 +1,16 @@
-import CrearRepuestos from "../../components/Repuestos/CrearRepuestos.jsx";
-import TablaRepuestos from "../../components/Repuestos/TablaRepuestos.jsx";
-import { useElement } from "../../context/RepuestosProvider.jsx";
+import ElementoForm from "../../components/elements/ElementoForm.jsx";
+import TablaRepuestos from "../../components/elements/TablaRepuestos.jsx";
+import { useElement } from "../../context/ElementProvider.jsx";
 import "../../css/Repuestos.css";
 import Navbar from "../../components/Navbar";
 
 function Repuestos() {
-  const { respuestos } = useElement();
+  const { elements } = useElement();
 
   return (
     <>
       <Navbar />
-      {respuestos.length > 0 ? <TablaRepuestos /> : <CrearRepuestos />}
+      {elements.length > 0 ? <TablaRepuestos /> : <TablaRepuestos />}
     </>
   );
 }

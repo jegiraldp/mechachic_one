@@ -1,33 +1,34 @@
-import { useElement } from "../../context/RepuestosProvider";
-import RepuestosRows from "./RepuestosRows";
+import RepuestosRows from "./RepuestosRows.jsx";
 import { FaPlusCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function TablaRepuestos() {
-  const { cambiar } = useElement();
-  const onclick = () => {
-    cambiar(2);
-  };
+ 
+  const navigate = useNavigate();
+  
   return (
     <section className="repuestos">
       <section className="repuestos__title">
         <h3 className="repuestos__titulo">Spare parts</h3>
-        <span className="repuestos__boton" onClick={onclick}>
-          <FaPlusCircle style={{ color: 'darkorange', fontSize: '0.7em' }}/>
+        <span className="repuestos__boton" onClick={() => navigate('/repuestos/new')}>
+        <FaPlusCircle style={{ color: 'darkorange' }}/>
         </span>
       </section>
-      <table className="repuestos__tabla" >
+      <table className="repuestos__tabla" border="0" width="60%">
         <thead>
           <tr align="left">
             <th>Code</th>
             <th>Name</th>
             <th>Description</th>
             <th>Category</th>
+            <th>Stock</th>
+            <th>Value</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          <RepuestosRows />
+        <RepuestosRows/>
         </tbody>
       </table>
     </section>

@@ -11,7 +11,7 @@ import Taller from "../pages/Taller/Taller";
 import Admin from "../pages/Adminis/Admin";
 import Caja from "../pages/Caja/Caja";
 import Repuestos from "../pages/inventario/Repuestos";
-import CrearRepuestos from "../components/Repuestos/CrearRepuestos";
+import CrearRepuestos from "../components/elements/ElementoForm";
 import Categorias from "../pages/inventario/Categorias";
 import CategoriaForm from "../components/categories/CategoriaForm";
 

@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import "./css/index.css";
 import { AuthProvider } from "./context/AuthContext";
 import { CategoryContextProvider } from "./context/CategoryProvider.jsx";
-import { ElementContextProvider } from "./context/RepuestosProvider.jsx";
+import { ElementContextProvider } from "./context/ElementProvider.jsx";
 
 import { BrowserRouter } from "react-router-dom";
 
