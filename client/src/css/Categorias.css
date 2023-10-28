@@ -12,6 +12,7 @@
   align-items: center;
 }
 
+
 .categorias__titulo {
   font-size: 3rem;
   padding: 2rem;
@@ -68,6 +69,7 @@ form.formulario {
   background-color: rgb(183, 182, 213);
   margin-right: 30px;
   margin-left: 30px;
+  
 }
 
 label{

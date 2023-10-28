@@ -4,7 +4,7 @@ import {
   deleteElementRequest,
   getElementRequest,
   updateElementRequest,
-} from "../api/repuestos.api.js";
+} from "../api/elements.api.js";
 import { useContext, useState, createContext } from "react";
 
 export const ElementContext = createContext();
@@ -30,7 +30,6 @@ export const ElementContextProvider = ({ children }) => {
   const createElement = async (Element) => {
     try {
       await createElementRequest(Element);
-      //setCategories([...categories, respon.data]);
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +65,6 @@ export const ElementContextProvider = ({ children }) => {
     }
   };
 
-
   return (
     <ElementContext.Provider
       value={{
@@ -76,7 +74,6 @@ export const ElementContextProvider = ({ children }) => {
         deleteElement,
         getElement,
         updateElement,
-        
       }}
     >
       {children}

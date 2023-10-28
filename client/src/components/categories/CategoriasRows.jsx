@@ -30,11 +30,15 @@ function CategoriasRows() {
     }
   };
 
+  const letraCapital=(nn)=>{
+    return nn.charAt(0).toUpperCase() + nn.slice(1).toLowerCase();
+  }
+
   return (
     <>
       {categories.map((cate) => (
         <tr key={cate.id}>
-          <td>{cate.nombre}</td>
+          <td>{letraCapital(cate.nombre)}</td>
           <td className="opciones">
             <span
               className="imgOpcion"

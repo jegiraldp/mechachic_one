@@ -14,7 +14,9 @@ function RepuestosRows() {
     cargarCategories();
   }, []);
 
- 
+  const letraCapital=(nn)=>{
+    return nn.charAt(0).toUpperCase() + nn.slice(1).toLowerCase();
+  }
 
   const getCategoryName = (categoryId) => {
     const category = categories.find((cat) => cat.id === categoryId);
@@ -25,9 +27,9 @@ function RepuestosRows() {
       {elements.map((ele) => (
         <tr key={ele.id}>
           <td>{ele.codigo}</td>
-          <td>{ele.nombre}</td>
-          <td>{ele.descripcion}</td>
-          <td>{getCategoryName(ele.idCategoria)}</td>
+          <td>{letraCapital(ele.nombre)}</td>
+          <td>{letraCapital(ele.descripcion)}</td>
+          <td>{letraCapital(getCategoryName(ele.idCategoria))}</td>
           <td>{ele.stock}</td>
           <td>{ele.valorUnitario}</td>
           <td className="opciones">

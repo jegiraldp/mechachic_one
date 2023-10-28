@@ -7,14 +7,14 @@ function TablaRepuestos() {
   const navigate = useNavigate();
   
   return (
-    <section className="repuestos">
-      <section className="repuestos__title">
-        <h3 className="repuestos__titulo">Spare parts</h3>
-        <span className="repuestos__boton" onClick={() => navigate('/repuestos/new')}>
+    <section className="elementos">
+      <section className="elementos__title">
+        <h3 className="elementos__titulo">Spare parts</h3>
+        <span className="elementos__boton" onClick={() => navigate('/repuestos/new')}>
         <FaPlusCircle style={{ color: 'darkorange' }}/>
         </span>
       </section>
-      <table className="repuestos__tabla" border="0" width="60%">
+      <table className="elementos__tabla" border="0" width="60%">
         <thead>
           <tr align="left">
             <th>Code</th>

@@ -44,10 +44,12 @@ function CategoriaForm() {
   });
 
   const onSubmit = handleSubmit((data) => {
+    
     if (params.id) {
       updateCategory(params.id, data);
 
     } else {
+      data.nombre=data.nombre.toLowerCase();
       createCategory(data);
       setValue("nombre", "");
     }
@@ -63,9 +65,12 @@ function CategoriaForm() {
           <h3 className="categorias__titulo">
             {params.id ? "Edit Category" : "Add Category"}
           </h3>
+          
         </section>
+        
         <section className="formulario-container">
           <form className="formulario" onSubmit={onSubmit}>
+          <hr /><br />
             {categoriesError.map((e, i) => (
               <div className="errorCategory" key={i}>
                 {e}

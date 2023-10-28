@@ -43,10 +43,11 @@ export const getStockElement = async (req, res) => {
 
 export const newElement = async (req, res) => {
   try {
-    const { codigo, nombre, descripcion, idCategoria } = req.body;
+    const { codigo, nombre, descripcion, idCategoria, stock, valorUnitario } = req.body;
+    
     const [result] = await pool.query(
-      "insert into elementos (codigo, nombre, descripcion, idCategoria) values (?,?,?,?)",
-      [codigo, nombre, descripcion, idCategoria]
+      "insert into elementos (codigo, nombre, descripcion, idCategoria, stock, valorUnitario) values (?,?,?,?,?,?)",
+      [parseInt(codigo), nombre, descripcion, parseInt(idCategoria), parseInt(stock), parseFloat(valorUnitario)]
     );
     res.json(result);
   } catch (error) {

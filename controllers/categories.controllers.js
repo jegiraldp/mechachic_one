@@ -27,6 +27,7 @@ export const getCategory = async (req, res) => {
 
 export const newCategory = async (req, res) => {
   try {
+    
     const { nombre } = req.body;
     const [categoria] = await pool.query(
       "select * from categorias where nombre = ?",

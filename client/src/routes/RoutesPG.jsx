@@ -11,7 +11,7 @@ import Taller from "../pages/Taller/Taller";
 import Admin from "../pages/Adminis/Admin";
 import Caja from "../pages/Caja/Caja";
 import Repuestos from "../pages/inventario/Repuestos";
-import CrearRepuestos from "../components/elements/ElementoForm";
+import ElementoForm from "../components/elements/ElementoForm";
 import Categorias from "../pages/inventario/Categorias";
 import CategoriaForm from "../components/categories/CategoriaForm";
 
@@ -49,8 +49,12 @@ function RoutesPG() {
         element={isAuthenticated ? <Repuestos /> : <LogIn />}
       />
       <Route
+        path="/repuestos/new"
+        element={isAuthenticated ? <ElementoForm /> : <LogIn />}
+      />
+      <Route
         path="/repuestos/:id"
-        element={isAuthenticated ? <CrearRepuestos /> : <LogIn />}
+        element={isAuthenticated ? <Repuestos /> : <LogIn />}
       />
       <Route
         path="/categorias"

@@ -1,17 +1,17 @@
-.repuestos {
+.elementos {
   border-radius: 1rem;
   margin: 2rem;
   background-color: rgb(183, 182, 213);
   padding-bottom: 2rem;
 }
 
-.repuestos__title {
+.elementos__title {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.repuestos__titulo {
+.elementos__titulo {
   font-size: 3rem;
   padding: 2rem;
   color:  rgb(37,36,64);
@@ -19,13 +19,13 @@
   text-align: center;
 }
 
-.repuestos__boton {
+.elementos__boton {
   cursor: pointer;
   font-size: 4rem;
  
 }
 
-.repuestos__tabla {
+.elementos__tabla {
   border:0;
   width:95%;
   margin: auto;
@@ -34,7 +34,7 @@
   border: 2px solid;
 }
 
-.repuestos__tabla td,
+.elementos__tabla td,
 th {
   padding: 0.8rem;
   text-align: left;
@@ -43,7 +43,7 @@ th {
 
 
 
-.repuestos__tabla th {
+.elementos__tabla th {
   background-color: rgb(37,36,64);
   color: white;
   
@@ -54,7 +54,7 @@ tr:hover{
   background-color: rgb(200, 198, 198);
 }
 
-.repuestos__tabla span {
+.elementos__tabla span {
   cursor: pointer;
 }
 
@@ -62,5 +62,85 @@ td.opciones{
   text-align: center;
 }
 
+form.formulario {
+  align-items: center;
+  width: auto; /* Ancho del formulario */
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(183, 182, 213);
+  margin-right: 30px;
+  margin-left: 30px;
+}
 
+label{
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  color:  rgb(37,36,64);
+  font-weight: bold;
+}
+
+input, select{
+  padding: 8px; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  width: 60%;
+  display: block;
+  margin-bottom: 10px;
+}
+
+form .elError {
+  padding: 0.1rem 1rem 1rem 1rem;
+  color: red;
+  font-size: small;
+  font-weight: bold;
+  
+}
+
+.formulario button {
+  background-color:  rgb(37,36,64);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.formulario-container {
+  margin-right: 30px;
+  margin-left: 30px;
+ 
+}
+
+.formulario button:hover {
+  background-color: rgb(79, 79, 79);
+}
+
+.errorCategory {
+  padding: 0.1rem 1rem 1rem 1rem;
+  color: red;
+  font-size: small;
+  font-weight: bold;
+}
+
+.elMsg {
+  padding: 0.1rem 1rem 1rem 1rem;
+  color: rgb(24, 5, 189);
+  font-size: small;
+}
+
+.regresar:hover{
+font-size: 17px;
+cursor: pointer;
+
+font-weight: bold;
+}
+
+span.imgOpcion:hover{
+  font-size: 18px;
+}
 
