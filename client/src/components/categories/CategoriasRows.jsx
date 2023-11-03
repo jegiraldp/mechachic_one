@@ -56,7 +56,7 @@ function CategoriasRows() {
               }}
             >
               ❌{elId==cate.id && categoriesError.map((e, i) => (
-              <div className="errorCategory">{e}</div>
+              <div className="errorCategoryDB">{e}</div>
             ))}
             </span>
             

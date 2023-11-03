@@ -14,8 +14,11 @@ function TablaCategorias() {
         <span className="categorias__boton" onClick={() => navigate('/categorias/new')}>
         <FaPlusCircle style={{ color: 'darkorange' }}/>
         </span>
+        
       </section>
+      <hr /><br />
       <table className="categorias__tabla" border="0" width="60%">
+        
         <thead>
           <tr align="left">
             <th>Name</th>

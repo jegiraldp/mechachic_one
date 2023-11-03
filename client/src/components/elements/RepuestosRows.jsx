@@ -33,7 +33,8 @@ function RepuestosRows() {
           <td>{ele.stock}</td>
           <td>{ele.valorUnitario}</td>
           <td className="opciones">
-            <span className="opciones" onClick={() => navigate(`/repuestos/${ele.id}`, onclick)}>
+         
+            <span className="opciones" onClick={() => navigate(`/repuestos/edit/${ele.id}`)}>
               ✏️
             </span>
           </td>

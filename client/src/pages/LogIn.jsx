@@ -44,7 +44,7 @@ function LogIn() {
             {e}
           </div>
         ))}
-        <input placeholder="Username" {...register("userName")} />
+        <input placeholder="Username" {...register("userName")} className="inputLogin"/>
         {errors.userName?.message && 
           <p className="elError">{errors.userName.message}</p>
         }
@@ -53,11 +53,12 @@ function LogIn() {
           type="password"
           placeholder="Password"
           {...register("password")}
+          className="inputLogin"
         />
         {errors.password?.message && (
           <p className="elError">{errors.password.message}</p>
         )}
-        <button type="submit">Login</button>
+        <button type="submit" className="btnLogin">Login</button>
       </form>
     </section>
   );

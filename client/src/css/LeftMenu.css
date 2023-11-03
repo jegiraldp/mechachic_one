@@ -2,7 +2,7 @@
     width: 28rem;
     height: 100vh;
     background-color: rgb(37, 36, 64);
-    height: 150vh;
+    height: calc(100vh);
   }
   
   .Sidebar div,

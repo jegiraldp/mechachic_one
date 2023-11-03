@@ -18,19 +18,46 @@ function ElementoForm() {
     valorUnitario: 0,
   });
 
-  const [lasCate, setLasCate] = useState([]);
-
   const { categories, cargarCategories } = useCategory();
-  const { createElement } = useElement();
+  const {
+    createElement,
+    errors: elementsError,
+    mensaje: elementsMensaje,
+    getElement,
+  } = useElement();
 
   useEffect(() => {
     if (categories.length == 0) {
       loadCategories();
     }
+
+    const loadElement = async () => {
+      if (params.id) {
+        const elElemento = await getElement(params.id);
+        const codigo = parseInt(elElemento.codigo, 10).toString();
+        setValue("codigo", parseInt(elElemento.codigo, 10).toString());
+        setValue("nombre", elElemento.nombre);
+        setValue("descripcion", elElemento.descripcion);
+        setValue(
+          "idCategoria",
+          parseInt(elElemento.idCategoria, 10).toString()
+        );
+        setValue("stock", parseInt(elElemento.stock, 10).toString());
+        setValue(
+          "valorUnitario",
+          parseInt(elElemento.valorUnitario, 10).toString()
+        );
+      }
+    };
+    loadElement();
   }, []);
 
   const loadCategories = async () => {
     await cargarCategories(params.id);
+  };
+
+  const letraCapital = (nn) => {
+    return nn.charAt(0).toUpperCase() + nn.slice(1).toLowerCase();
   };
 
   const {
@@ -43,17 +70,25 @@ function ElementoForm() {
   });
 
   const onSubmit = handleSubmit((data) => {
-    
-    /* if (params.id) {
-      updateCategory(params.id, data);
-
-    } else {*/
-     createElement(data);
-    //setValue("nombre", "");
-    /*}*/
+    if (params.id) {
+      //updateCategory(params.id, data);
+      console.log("editar");
+    } else {
+      data.nombre = data.nombre.toLowerCase();
+      data.descripcion = data.descripcion.toLowerCase();
+      //createElement(data);
+      //limpiar();
+      console.log("crear");
+    }
   });
-  const letraCapital = (nn) => {
-    return nn.charAt(0).toUpperCase() + nn.slice(1).toLowerCase();
+
+  const limpiar = () => {
+    setValue("codigo", "");
+    setValue("nombre", "");
+    setValue("descripcion", "");
+    setValue("idCategoria", "0");
+    setValue("stock", "");
+    setValue("valorUnitario", "");
   };
 
   return (
@@ -69,22 +104,36 @@ function ElementoForm() {
           </h3>
         </section>
         <section className="formulario-container">
-          <form className="formulario" onSubmit={onSubmit}>
+          <form className="formularioElemento" onSubmit={onSubmit}>
             <hr />
             <br />
-            {/*categoriesError.map((e, i) => (
-              <div className="errorCategory" key={i}>
+
+            {elementsError.map((e, i) => (
+              <div className="errorElement" key={i}>
                 {e}
               </div>
-            ))*/}
-            {/*categoryMensaje && <p className="elMsg">{categoryMensaje}</p>*/}
+            ))}
+            {elementsMensaje && <p className="elMsg">{elementsMensaje}</p>}
 
-            <input placeholder="Enter Element´s code" {...register("codigo")} type="number"/>
+            <input
+              placeholder="Enter Element´s code"
+              {...register("codigo")}
+              type="number"
+            />
             {errors.codigo?.message && (
               <p className="elError">{errors.codigo.message}</p>
             )}
-
-            <input placeholder="Enter Element´s name" {...register("nombre")} />
+            {/*params.id && (
+              <label for="nombre" className="lblElemento">
+                Name
+              </label>
+            )*/}
+            <input
+              placeholder="Enter Element´s name"
+              {...register("nombre")}
+              id="nombre"
+              name="nombre"
+            />
             {errors.nombre?.message && (
               <p className="elError">{errors.nombre.message}</p>
             )}
@@ -109,7 +158,11 @@ function ElementoForm() {
               <p className="elError">{errors.idCategoria.message}</p>
             )}
 
-            <input placeholder="Enter Element´s Stock" {...register("stock")} type="number"/>
+            <input
+              placeholder="Enter Element´s Stock"
+              {...register("stock")}
+              type="number"
+            />
             {errors.stock?.message && (
               <p className="elError">{errors.stock.message}</p>
             )}
@@ -117,12 +170,15 @@ function ElementoForm() {
             <input
               placeholder="Enter Element´s Value"
               {...register("valorUnitario")}
-              type="number"/>
+              type="number"
+            />
             {errors.valorUnitario?.message && (
               <p className="elError">{errors.valorUnitario.message}</p>
             )}
 
-            <button type="submit">{params.id ? "Edit" : "Save.."}</button>
+            <button className="btnElemento" type="submit">
+              {params.id ? "Edit" : "Save"}
+            </button>
           </form>
         </section>
       </section>

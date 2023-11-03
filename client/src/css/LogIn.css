@@ -37,7 +37,7 @@
   margin-bottom: 3rem;
 }
 
-.login__form input {
+.login__form input.inputLogin {
   border-radius: 0.5rem;
   padding: 1.8rem 1.8rem 1.8rem 1rem;
   font-size: 1.6rem;
@@ -45,8 +45,8 @@
   width: auto;
 }
 
-input:focus{
-  border-color: #007bff; /* Change the border color when in focus */
+input.inputLogin:focus{
+  
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box shadow */
   outline: none; /* Remove the default focus outline (optional) */
   background-color: rgb(233, 220, 246);
@@ -59,7 +59,7 @@ input:focus{
   font-size: small;
 }
 
-.login button {
+.login button.btnLogin {
   margin-top: 5rem;
   background-color: black;
   color: white;
@@ -71,7 +71,7 @@ input:focus{
  
 }
 
-.login button:hover{
+.login button.btnLogin:hover{
   background-color: rgb(46, 43, 43);
   font-style: italic;
 }

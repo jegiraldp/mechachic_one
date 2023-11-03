@@ -44,6 +44,13 @@ export const getStockElement = async (req, res) => {
 export const newElement = async (req, res) => {
   try {
     const { codigo, nombre, descripcion, idCategoria, stock, valorUnitario } = req.body;
+
+    const [elemento] = await pool.query(
+      "select * from elementos where nombre = ?",
+      [nombre]
+    );
+    if (elemento.length>0)
+      return res.status(400).json(["Element´s name or code already exists ⚠️"]);
     
     const [result] = await pool.query(
       "insert into elementos (codigo, nombre, descripcion, idCategoria, stock, valorUnitario) values (?,?,?,?,?,?)",

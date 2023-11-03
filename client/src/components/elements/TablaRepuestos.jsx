@@ -14,6 +14,7 @@ function TablaRepuestos() {
         <FaPlusCircle style={{ color: 'darkorange' }}/>
         </span>
       </section>
+      <hr /><br />
       <table className="elementos__tabla" border="0" width="60%">
         <thead>
           <tr align="left">

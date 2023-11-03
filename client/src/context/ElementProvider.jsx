@@ -5,9 +5,11 @@ import {
   getElementRequest,
   updateElementRequest,
 } from "../api/elements.api.js";
-import { useContext, useState, createContext } from "react";
+import { useContext, useEffect,useState, createContext } from "react";
 
 export const ElementContext = createContext();
+
+  
 
 export const useElement = () => {
   const context = useContext(ElementContext);
@@ -19,7 +21,26 @@ export const useElement = () => {
 
 export const ElementContextProvider = ({ children }) => {
   const [elements, setElements] = useState([]);
+  const [errors, setErrors] = useState([]);
+  const [mensaje, setMensaje] = useState("");
+  useEffect(() => {
+    if (errors.length > 0) {
+      const timer = setTimeout(() => {
+        setErrors([]);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [errors]);
 
+  useEffect(() => {
+    if (mensaje) {
+      const timer = setTimeout(() => {
+        setMensaje("");
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [mensaje]);
+  
   //cargar Elements
   async function getElements() {
     const respues = await getElementsRequest();
@@ -30,8 +51,10 @@ export const ElementContextProvider = ({ children }) => {
   const createElement = async (Element) => {
     try {
       await createElementRequest(Element);
+      setMensaje("Element created ✔️");
     } catch (error) {
-      console.log(error);
+      //console.log(error);
+      setErrors(error.response.data);
     }
   };
 
@@ -74,6 +97,8 @@ export const ElementContextProvider = ({ children }) => {
         deleteElement,
         getElement,
         updateElement,
+        errors,
+        mensaje,
       }}
     >
       {children}

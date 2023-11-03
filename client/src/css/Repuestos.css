@@ -14,20 +14,19 @@
 .elementos__titulo {
   font-size: 3rem;
   padding: 2rem;
-  color:  rgb(37,36,64);
-  
+  color: rgb(37, 36, 64);
+
   text-align: center;
 }
 
 .elementos__boton {
   cursor: pointer;
   font-size: 4rem;
- 
 }
 
 .elementos__tabla {
-  border:0;
-  width:95%;
+  border: 0;
+  width: 95%;
   margin: auto;
   border-collapse: collapse;
   background-color: #fff;
@@ -41,16 +40,14 @@ th {
   border: 0px;
 }
 
-
-
 .elementos__tabla th {
-  background-color: rgb(37,36,64);
+  background-color: rgb(37, 36, 64);
   color: white;
-  
+
   font-size: 1.7rem;
 }
 
-tr:hover{
+tr:hover {
   background-color: rgb(200, 198, 198);
 }
 
@@ -58,13 +55,13 @@ tr:hover{
   cursor: pointer;
 }
 
-td.opciones{
+td.opciones {
   text-align: center;
 }
 
-form.formulario {
+form.formularioElemento {
   align-items: center;
-  width: auto; /* Ancho del formulario */
+  width: auto;
   border: none;
   border-radius: 10px;
   background-color: rgb(183, 182, 213);
@@ -72,17 +69,15 @@ form.formulario {
   margin-left: 30px;
 }
 
-label{
-  font-size: 18px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: block;
-  color:  rgb(37,36,64);
-  font-weight: bold;
+.lblElemento {
+  font-size: 16px;
+  color: black;
+  align-self: center;
 }
 
-input, select{
-  padding: 8px; 
+input,
+select {
+  padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
@@ -90,41 +85,39 @@ input, select{
   width: 60%;
   display: block;
   margin-bottom: 10px;
+  margin: 0 auto;
+  margin-top: 10px;
 }
 
-form .elError {
+form .elError,
+.errorElement {
   padding: 0.1rem 1rem 1rem 1rem;
   color: red;
   font-size: small;
   font-weight: bold;
-  
+  text-align: center;
 }
 
-.formulario button {
-  background-color:  rgb(37,36,64);
+.formularioElemento .btnElemento {
+  background-color: rgb(37, 36, 64);
   color: white;
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 10px;
 }
 
 .formulario-container {
   margin-right: 30px;
   margin-left: 30px;
- 
 }
 
-.formulario button:hover {
+.btnElemento:hover {
   background-color: rgb(79, 79, 79);
-}
-
-.errorCategory {
-  padding: 0.1rem 1rem 1rem 1rem;
-  color: red;
-  font-size: small;
-  font-weight: bold;
 }
 
 .elMsg {
@@ -133,14 +126,13 @@ form .elError {
   font-size: small;
 }
 
-.regresar:hover{
-font-size: 17px;
-cursor: pointer;
+.regresar:hover {
+  font-size: 17px;
+  cursor: pointer;
 
-font-weight: bold;
+  font-weight: bold;
 }
 
-span.imgOpcion:hover{
+span.imgOpcion:hover {
   font-size: 18px;
 }
-

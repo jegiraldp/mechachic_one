@@ -10,10 +10,6 @@ function CategoriaForm() {
   const navigate = useNavigate();
   const params = useParams();
 
-  const [category, setCategory] = useState({
-    nombre: "",
-  });
-
   const {
     createCategory,
     errors: categoriesError,
@@ -27,7 +23,7 @@ function CategoriaForm() {
     const loadCategory = async () => {
       if (params.id) {
         const laCate = await getCategory(params.id);
-        setCategory({ nombre: laCate.nombre });
+        //setCategory({ nombre: laCate.nombre });
         setValue("nombre", laCate.nombre);
       }
     };
@@ -69,7 +65,7 @@ function CategoriaForm() {
         </section>
         
         <section className="formulario-container">
-          <form className="formulario" onSubmit={onSubmit}>
+          <form className="formularioCategoria" onSubmit={onSubmit}>
           <hr /><br />
             {categoriesError.map((e, i) => (
               <div className="errorCategory" key={i}>
@@ -77,7 +73,8 @@ function CategoriaForm() {
               </div>
             ))}
             {categoryMensaje && <p className="elMsg">{categoryMensaje}</p>}
-            <input
+            
+            {params.id && <label for="nombre" className="lblCategoria">Name</label>}<input className="inputCategoria" id="nombre" name="nombre"
               placeholder="Enter Categories´s name"
               {...register("nombre")}
             />
@@ -86,7 +83,7 @@ function CategoriaForm() {
               <p className="elError">{errors.nombre.message}</p>
             )}
 
-            <button type="submit">{params.id ? "Edit" : "Save"}</button>
+            <button type="submit" className="btnCategoria">{params.id ? "Edit" : "Save"}</button>
           </form>
         </section>
       </section>
