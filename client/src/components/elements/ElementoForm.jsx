@@ -24,6 +24,7 @@ function ElementoForm() {
     errors: elementsError,
     mensaje: elementsMensaje,
     getElement,
+    updateElement
   } = useElement();
 
   useEffect(() => {
@@ -71,14 +72,13 @@ function ElementoForm() {
 
   const onSubmit = handleSubmit((data) => {
     if (params.id) {
-      //updateCategory(params.id, data);
-      console.log("editar");
+      updateElement(params.id, data);
+      //console.log("editar");
     } else {
       data.nombre = data.nombre.toLowerCase();
       data.descripcion = data.descripcion.toLowerCase();
-      //createElement(data);
-      //limpiar();
-      console.log("crear");
+      createElement(data);
+      limpiar();
     }
   });
 
@@ -114,39 +114,45 @@ function ElementoForm() {
               </div>
             ))}
             {elementsMensaje && <p className="elMsg">{elementsMensaje}</p>}
-
+            <div className="contenedorElementos">
+            {params.id && <label className="lblElemento">Code</label>}
             <input
               placeholder="Enter Element´s code"
               {...register("codigo")}
               type="number"
+              className="inputElemento"
             />
+            </div>
+            
             {errors.codigo?.message && (
               <p className="elError">{errors.codigo.message}</p>
             )}
-            {/*params.id && (
-              <label for="nombre" className="lblElemento">
-                Name
-              </label>
-            )*/}
+            <div className="contenedorElementos">
+            {params.id && <label className="lblElemento">Name</label>}
             <input
               placeholder="Enter Element´s name"
               {...register("nombre")}
-              id="nombre"
-              name="nombre"
+              
+              className="inputElemento"
             />
+            </div>
             {errors.nombre?.message && (
               <p className="elError">{errors.nombre.message}</p>
             )}
-
+            <div className="contenedorElementos">
+            {params.id && <label className="lblElemento">Description</label>}
             <input
               placeholder="Enter Element´s description"
               {...register("descripcion")}
+              className="inputElemento"
             />
+            </div>
             {errors.descripcion?.message && (
               <p className="elError">{errors.descripcion.message}</p>
             )}
-
-            <select {...register("idCategoria")}>
+            <div className="contenedorElementos">
+            {params.id && <label className="lblElemento">Category</label>}
+            <select {...register("idCategoria")} className="inputElemento">
               <option value="0">Select a category..</option>
               {categories.map((cat) => (
                 <option key={cat.id} value={cat.id}>
@@ -154,24 +160,31 @@ function ElementoForm() {
                 </option>
               ))}
             </select>
+            </div>
             {errors.idCategoria?.message && (
               <p className="elError">{errors.idCategoria.message}</p>
             )}
-
+            <div className="contenedorElementos">
+            {params.id && <label className="lblElemento">Stock</label>}
             <input
               placeholder="Enter Element´s Stock"
               {...register("stock")}
               type="number"
+              className="inputElemento"
             />
+            </div>
             {errors.stock?.message && (
               <p className="elError">{errors.stock.message}</p>
             )}
-
+<div className="contenedorElementos">
+            {params.id && <label className="lblElemento">Value</label>}
             <input
               placeholder="Enter Element´s Value"
               {...register("valorUnitario")}
               type="number"
+              className="inputElemento"
             />
+            </div>
             {errors.valorUnitario?.message && (
               <p className="elError">{errors.valorUnitario.message}</p>
             )}

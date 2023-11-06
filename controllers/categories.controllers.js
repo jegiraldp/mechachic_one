@@ -50,13 +50,13 @@ export const newCategory = async (req, res) => {
 export const updateCategory = async (req, res) => {
   try {
     const { nombre } = req.body;
-    const [categoria] = await pool.query(
+    /*const [categoria] = await pool.query(
       "select * from categorias where nombre = ?",
       [nombre]
     );
 
     if (categoria.length > 0)
-      return res.status(400).json(["Categorie´s name already exists ⚠️"]);
+      return res.status(400).json(["Categorie´s name already exists ⚠️"]);*/
 
     const [result] = await pool.query("update categorias set ? where id = ?", [
       req.body,

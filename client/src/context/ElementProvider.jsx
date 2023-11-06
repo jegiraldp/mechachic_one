@@ -82,7 +82,8 @@ export const ElementContextProvider = ({ children }) => {
   //update Element
   const updateElement = async (id, newFields) => {
     try {
-      await updateElementRequest(id, newFields);
+      const res =await updateElementRequest(id, newFields);
+      setMensaje(res.data);
     } catch (error) {
       console.log(error);
     }

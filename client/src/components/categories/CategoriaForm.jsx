@@ -73,17 +73,20 @@ function CategoriaForm() {
               </div>
             ))}
             {categoryMensaje && <p className="elMsg">{categoryMensaje}</p>}
-            
-            {params.id && <label for="nombre" className="lblCategoria">Name</label>}<input className="inputCategoria" id="nombre" name="nombre"
+            <div className="contenedorElementos">
+            {params.id && <label for="nombre" className="lblCategoria">Name</label>}
+          
+            <input className="inputCategoria" id="nombre" name="nombre"
               placeholder="Enter Categories´s name"
               {...register("nombre")}
             />
-
+            </div>
             {errors.nombre?.message && (
               <p className="elError">{errors.nombre.message}</p>
             )}
 
             <button type="submit" className="btnCategoria">{params.id ? "Edit" : "Save"}</button>
+            
           </form>
         </section>
       </section>

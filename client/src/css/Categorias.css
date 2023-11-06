@@ -69,32 +69,27 @@ form.formularioCategoria {
   
 }
 
+.contenedorElementos {
+  display: flex;
+  align-items: center; 
+}
+
 label.lblCategoria {
-  /*font-size: 16px;
-  color: black;
-  margin-bottom: 10px;*/
-  font-size: 16px;
-  color: black;
-  align-self: center;
+  color: rgb(37, 36, 64);
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: medium;
+  
 }
 
 input.inputCategoria {
-  /*padding: 8px;
+   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
   font-size: 16px;
-  width: 60%;
-  display: block;
-  margin-bottom: 10px;
-  margin: 0 auto;
-  margin-top: 10px;*/
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 16px;
-  width: 100%;
+  width: 95%;
+  margin-left: auto;
 }
 
 .categorias form .elError {
