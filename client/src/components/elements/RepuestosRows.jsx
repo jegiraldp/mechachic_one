@@ -5,14 +5,23 @@ import { useNavigate } from "react-router-dom";
 
 function RepuestosRows() {
   const { categories,cargarCategories } = useCategory();
-  const { elements, getElements } = useElement();
+  const { elements, getElements, deleteElement } = useElement();
   const [mensaje, setMensaje] = useState("");
   const navigate = useNavigate();
+  const [elId, setElId] = useState(0);
 
   useEffect(() => {
     getElements();
     cargarCategories();
   }, []);
+
+  const borrarElemento=async(id)=>{
+    setElId(id);
+    const confirma= window.confirm("Are you sure you want to delete ??")
+    if(confirma){
+      deleteElement(id)
+    }
+  }
 
   const letraCapital=(nn)=>{
     return nn.charAt(0).toUpperCase() + nn.slice(1).toLowerCase();
@@ -41,10 +50,8 @@ function RepuestosRows() {
           <td className="opciones">
             <span 
               onClick={async () => {
-                const resul = await deleteElement(ele.id);
-                if (resul) {
-                  setMensaje(resul);
-                }
+                await borrarElemento(ele.id);
+              
               }}
             >
               ❌

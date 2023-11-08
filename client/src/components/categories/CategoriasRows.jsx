@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { useCategory } from "../../context/CategoryProvider";
 
 function CategoriasRows() {
+ 
+  
   const {
     categories,
     cargarCategories,
     deleteCategory,
     errors: categoriesError,
-    
   } = useCategory();
   const [elId, setElId] = useState(0);
-  const [nombreCategoria, setNombreCategoria] = useState("");
 
   const navigate = useNavigate();
 
@@ -21,18 +21,17 @@ function CategoriasRows() {
 
   const borrarTarea = async (id, nc) => {
     setElId(id);
-    const confirmacion = window.confirm(
-      "Are you sure you want to delete : " + nc
-    );
+    const confirmacion = window.confirm("Are you sure you want to delete ??");
 
     if (confirmacion) {
-      const resul = await deleteCategory(id);
+      await deleteCategory(id);
     }
   };
 
-  const letraCapital=(nn)=>{
+  const letraCapital = (nn) => {
     return nn.charAt(0).toUpperCase() + nn.slice(1).toLowerCase();
-  }
+  };
+
 
   return (
     <>
@@ -51,15 +50,15 @@ function CategoriasRows() {
             <span
               className="imgOpcion"
               onClick={() => {
-                setNombreCategoria(cate.nombre);
                 borrarTarea(cate.id, cate.nombre);
               }}
             >
-              ❌{elId==cate.id && categoriesError.map((e, i) => (
-              <div className="errorCategoryDB">{e}</div>
-            ))}
+              ❌
+              {elId == cate.id &&
+                categoriesError.map((e, i) => (
+                  <div className="errorCategoryDB">{e}</div>
+                ))}
             </span>
-            
           </td>
         </tr>
       ))}
