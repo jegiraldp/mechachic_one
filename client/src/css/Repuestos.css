@@ -2,7 +2,7 @@
   border-radius: 1rem;
   margin: 2rem;
   background-color: rgb(183, 182, 213);
-  padding-bottom: 2rem;
+  padding-bottom: 50px;
 }
 
 .elementos__title {
@@ -15,7 +15,6 @@
   font-size: 3rem;
   padding: 2rem;
   color: rgb(37, 36, 64);
-
   text-align: center;
 }
 
@@ -81,7 +80,6 @@ label.lblElemento {
   font-size: medium;
 }
 
-
 input.inputElemento,
 select.inputElemento {
   padding: 8px;
@@ -140,4 +138,55 @@ form .elError,
 
 span.imgOpcion:hover {
   font-size: 18px;
+}
+
+.pagination {
+  margin: 1rem 0 0 3rem;
+  margin-right: auto;
+  text-align: center;
+}
+
+li.page-item:hover:not(.activo),
+li.page-item-next:hover,
+li.page-item-prev:hover {
+  background-color: gray;
+}
+
+li.page-item {
+  list-style: none;
+  float: left;
+  border: 1px solid gray;
+  padding: 6px 15px;
+  color: black;
+}
+
+li.activo {
+  background-color: rgb(37, 36, 64);
+  list-style: none;
+  float: left;
+  border: 1px solid gray;
+  padding: 6px 15px;
+}
+li.activo a {
+  color: white;
+}
+
+li.page-item-prev {
+  list-style: none;
+  float: left;
+  border: 1px solid gray;
+  padding: 6px 15px;
+  color: black;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+li.page-item-next {
+  list-style: none;
+  float: left;
+  border: 1px solid gray;
+  padding: 6px 15px;
+  color: black;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
