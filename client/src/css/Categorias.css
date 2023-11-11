@@ -54,8 +54,8 @@ tr:hover {
   cursor: pointer;
 }
 
-td.opciones {
-  text-align: left;
+td.opcionesCat span.imgOpcion {
+  text-align: center;
 }
 
 form.formularioCategoria {

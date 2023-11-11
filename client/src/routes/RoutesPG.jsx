@@ -12,8 +12,13 @@ import Admin from "../pages/Adminis/Admin";
 import Caja from "../pages/Caja/Caja";
 import Repuestos from "../pages/inventario/Repuestos";
 import ElementoForm from "../components/elements/ElementoForm";
-import Categorias from "../pages/inventario/Categorias";
 import CategoriaForm from "../components/categories/CategoriaForm";
+import ServicioForm from "../components/services/ServicioForm";
+import Categorias from "../pages/inventario/Categorias";
+import Servicios from "../pages/inventario/Servicios";
+
+
+
 
 
 function RoutesPG() {
@@ -55,6 +60,14 @@ function RoutesPG() {
       <Route
         path="/repuestos/edit/:id"
         element={isAuthenticated ? <ElementoForm /> : <LogIn />}
+      />
+      <Route
+        path="/servicios"
+        element={isAuthenticated ? <Servicios /> : <LogIn />}
+      />
+      <Route
+        path="/servicios/new"
+        element={isAuthenticated ? <ServicioForm /> : <LogIn />}
       />
       <Route
         path="/categorias"

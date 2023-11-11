@@ -72,17 +72,17 @@ function TablaCategorias() {
       <br />
       <table className="categorias__tabla" border="0" width="60%">
         <thead>
-          <tr align="left">
+          <tr>
             <th>Name</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {records.map((cate) => (
             <tr key={cate.id}>
               <td>{letraCapital(cate.nombre)}</td>
-              <td className="opciones">
+              <td className="opcionesCat">
                 <span
                   className="imgOpcion"
                   onClick={() => navigate(`/categorias/edit/${cate.id}`)}
@@ -90,7 +90,7 @@ function TablaCategorias() {
                   ✏️
                 </span>
               </td>
-              <td className="opciones">
+              <td className="opcionesCat">
                 <span
                   className="imgOpcion"
                   onClick={() => {

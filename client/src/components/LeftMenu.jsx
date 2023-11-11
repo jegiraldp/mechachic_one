@@ -117,7 +117,7 @@ function LeftMenu() {
                 <li>
                   <NavLink
                     className="icon"
-                    to="/inventario"
+                    to="/servicios"
                     activeclassname="active"
                   >
                     Services

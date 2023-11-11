@@ -10,13 +10,7 @@ import { useElement } from "../../context/ElementProvider";
 function ElementoForm() {
   const navigate = useNavigate();
   const params = useParams();
-  const [element, setElement] = useState({
-    nombre: "",
-    descripcion: "",
-    idCategoria: 0,
-    stock: 0,
-    valorUnitario: 0,
-  });
+  
 
   const { categories, cargarCategories } = useCategory();
   const {
@@ -35,7 +29,6 @@ function ElementoForm() {
     const loadElement = async () => {
       if (params.id) {
         const elElemento = await getElement(params.id);
-        const codigo = parseInt(elElemento.codigo, 10).toString();
         setValue("codigo", parseInt(elElemento.codigo, 10).toString());
         setValue("nombre", elElemento.nombre);
         setValue("descripcion", elElemento.descripcion);
@@ -181,7 +174,7 @@ function ElementoForm() {
             <input
               placeholder="Enter Element´s Value"
               {...register("valorUnitario")}
-              type="number"
+              
               className="inputElemento"
             />
             </div>

@@ -3,30 +3,20 @@ import Navbar from "../Navbar";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router-dom";
-import { CategorySchema } from "../../schemas/category.schema.js";
-import { useCategory } from "../../context/CategoryProvider";
+import { useService } from "../../context/ServiceProvider";
 
-function CategoriaForm() {
+function ServicioForm() {
   const navigate = useNavigate();
   const params = useParams();
 
-  const {
-    createCategory,
-    errors: categoriesError,
-    mensaje: categoryMensaje,
-    getCategory,
-    updateCategory
-    
-  } = useCategory();
-
   useEffect(() => {
-    const loadCategory = async () => {
+    /*const loadCategory = async () => {
       if (params.id) {
         const laCate = await getCategory(params.id);
         setValue("nombre", laCate.nombre);
       }
     };
-    loadCategory();
+    loadCategory();*/
   }, [params.id]);
 
   const {
@@ -34,12 +24,12 @@ function CategoriaForm() {
     formState: { errors },
     handleSubmit,
     setValue,
-  } = useForm({
+  } = useForm(/*{
     resolver: zodResolver(CategorySchema),
-  });
+  }*/);
 
   const onSubmit = handleSubmit((data) => {
-    
+    /*
     if (params.id) {
       updateCategory(params.id, data);
 
@@ -47,44 +37,45 @@ function CategoriaForm() {
       data.nombre=data.nombre.toLowerCase();
       createCategory(data);
       setValue("nombre", "");
-    }
+    }*/
   });
+
   return (
     <>
       <Navbar />
-      <section className="categorias">
-        <span className="regresar" onClick={() => navigate("/categorias")}>
+      <section className="servicios">
+        <span className="regresar" onClick={() => navigate("/servicios")}>
           👈Back
         </span>
-        <section className="categorias__title">
-          <h3 className="categorias__titulo">
-            {params.id ? "Edit Category" : "Add Category"}
+        <section className="servicios__title">
+          <h3 className="servicios__titulo">
+            {params.id ? "Edit Service" : "Add Service"}
           </h3>
           
         </section>
         
         <section className="formulario-container">
-          <form className="formularioCategoria" onSubmit={onSubmit}>
+          <form className="formularioServicio" onSubmit={onSubmit}>
           <hr /><br />
-            {categoriesError.map((e, i) => (
+            {/*categoriesError.map((e, i) => (
               <div className="errorCategory" key={i}>
                 {e}
               </div>
-            ))}
-            {categoryMensaje && <p className="elMsg">{categoryMensaje}</p>}
+            ))*/}
+            {/*categoryMensaje && <p className="elMsg">{categoryMensaje}</p>*/}
             <div className="contenedorElementos">
-            {params.id && <label for="nombre" className="lblCategoria">Name</label>}
+            {/*params.id && <label for="nombre" className="lblServicio">Name</label>*/}
           
-            <input className="inputCategoria" id="nombre" name="nombre"
-              placeholder="Enter Categories´s name"
+            <input className="inputServicio" id="nombre" name="nombre"
+              placeholder="Enter Service´s name"
               {...register("nombre")}
             />
             </div>
-            {errors.nombre?.message && (
+            {/*errors.nombre?.message && (
               <p className="elError">{errors.nombre.message}</p>
-            )}
+            )*/}
 
-            <button type="submit" className="btnCategoria">{params.id ? "Edit" : "Save"}</button>
+            <button type="submit" className="btnServicio">{params.id ? "Edit" : "Save"}</button>
             
           </form>
         </section>
@@ -93,4 +84,4 @@ function CategoriaForm() {
   );
 }
 
-export default CategoriaForm;
+export default ServicioForm;

@@ -55,7 +55,7 @@ tr:hover {
   cursor: pointer;
 }
 
-td.opciones {
+td.opcionesEle span.opciones {
   text-align: center;
 }
 
