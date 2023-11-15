@@ -84,7 +84,7 @@ function TablaRepuestos() {
         </thead>
         <tbody>
           {records.map((ele) => (
-            <tr key={ele.id}>
+            <tr key={ele.codigo}>
               <td>{ele.codigo}</td>
               <td>{letraCapital(ele.nombre)}</td>
               <td>{letraCapital(ele.descripcion)}</td>
@@ -94,7 +94,7 @@ function TablaRepuestos() {
               <td className="opcionesEle">
                 <span
                   className="opciones"
-                  onClick={() => navigate(`/repuestos/edit/${ele.id}`)}
+                  onClick={() => navigate(`/repuestos/edit/${ele.codigo}`)}
                 >
                   ✏️
                 </span>
@@ -102,7 +102,7 @@ function TablaRepuestos() {
               <td className="opcionesEle">
                 <span className="opciones"
                   onClick={async () => {
-                    await borrarElemento(ele.id);
+                    await borrarElemento(ele.codigo);
                   }}
                 >
                   ❌

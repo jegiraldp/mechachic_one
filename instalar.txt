@@ -1,0 +1,15 @@
+BACKEND: 
+npm install express mysql2 morgan
+npm i nodemon -D
+npm i jsonwebtoken (crea token)
+npm i cookie-parser (leer cookies)
+npm i zod (validación de datos)
+npm i dotenv (proteger datos)
+
+REACT ROUTER: npm install react-router-dom localforage match-sorter sort-by
+React-Hook: npm install react-hook-form
+leer cokies: npm i js-cookie
+axios: npm install axios
+cors: npm install cors
+npm i react-icons --save
+charts: npm install recharts

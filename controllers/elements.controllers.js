@@ -14,8 +14,8 @@ export const getElements = async (req, res) => {
 export const getElement = async (req, res) => {
   try {
     const [result] = await pool.query(
-      "select * from elementos where id = ?",
-      [req.params.id]
+      "select * from elementos where codigo = ?",
+      [req.params.codigo]
     );
     if (result.length === 0)
       return res.status(404).json({ mensaje: "Element does not exists" });
@@ -28,8 +28,8 @@ export const getElement = async (req, res) => {
 export const getStockElement = async (req, res) => {
   try {
     const [result] = await pool.query(
-      "select stock from elementos where id = ?",
-      [req.params.id]
+      "select stock from elementos where codigo = ?",
+      [req.params.codigo]
     );
     if (result.length === 0)
       return res.status(404).json({ mensaje: "Element does not exists" });
@@ -46,8 +46,8 @@ export const newElement = async (req, res) => {
     const { codigo, nombre, descripcion, idCategoria, stock, valorUnitario } = req.body;
 
     const [elemento] = await pool.query(
-      "select * from elementos where nombre = ?",
-      [nombre]
+      "select * from elementos where codigo=? or nombre = ?",
+      [codigo, nombre]
     );
     if (elemento.length>0)
       return res.status(400).json(["Element´s name or code already exists ⚠️"]);
@@ -64,24 +64,25 @@ export const newElement = async (req, res) => {
 
 export const updateElement = async (req, res) => {
     try {
-      const [result]=await pool.query("update elementos set ? where id = ?", [
+      const [result]=await pool.query("update elementos set ? where codigo = ?", [
         req.body,
-        req.params.id,
+        req.params.codigo,
       ]);
       if (result.affectedRows === 0)
         return res.status(404).json({ mensaje: "Element does not exists" });
       res.json("Element updated ..✔️");
       
     } catch (error) {
-      return res.status(500).json({ mensaje: error.message });
+      //console.log("error")
+      return res.status(400).json(["Element´s code already exists ⚠️"]);
     }
   };
 
   export const updateStockElement = async (req, res) => {
     try {
-      const [result]=await pool.query("update elementos set stock = ? where id = ?", [
+      const [result]=await pool.query("update elementos set stock = ? where codigo = ?", [
         req.params.stock,
-        req.params.id,
+        req.params.codigo,
       ]);
       if (result.affectedRows === 0)
         return res.status(404).json({ mensaje: "Element does not exists" });
@@ -94,8 +95,8 @@ export const updateElement = async (req, res) => {
 
   export const deleteElement = async (req, res) => {
     try {
-      const [resultado] = await pool.query("delete from elementos where id = ?", [
-        req.params.id,
+      const [resultado] = await pool.query("delete from elementos where codigo = ?", [
+        req.params.codigo,
       ]);
       if (resultado.affectedRows === 0)
         return res.status(404).json({ mensaje: "Element does not exists" });

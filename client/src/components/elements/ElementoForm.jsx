@@ -10,7 +10,6 @@ import { useElement } from "../../context/ElementProvider";
 function ElementoForm() {
   const navigate = useNavigate();
   const params = useParams();
-  
 
   const { categories, cargarCategories } = useCategory();
   const {
@@ -18,7 +17,7 @@ function ElementoForm() {
     errors: elementsError,
     mensaje: elementsMensaje,
     getElement,
-    updateElement
+    updateElement,
   } = useElement();
 
   useEffect(() => {
@@ -37,10 +36,7 @@ function ElementoForm() {
           parseInt(elElemento.idCategoria, 10).toString()
         );
         setValue("stock", parseInt(elElemento.stock, 10).toString());
-        setValue(
-          "valorUnitario",
-          parseInt(elElemento.valorUnitario, 10).toString()
-        );
+        setValue("valorUnitario", elElemento.valorUnitario);
       }
     };
     loadElement();
@@ -71,18 +67,14 @@ function ElementoForm() {
       data.nombre = data.nombre.toLowerCase();
       data.descripcion = data.descripcion.toLowerCase();
       createElement(data);
-      limpiar();
-    }
-  });
-
-  const limpiar = () => {
-    setValue("codigo", "");
+      setValue("codigo", "");
     setValue("nombre", "");
     setValue("descripcion", "");
     setValue("idCategoria", "0");
     setValue("stock", "");
     setValue("valorUnitario", "");
-  };
+    }
+  });
 
   return (
     <>
@@ -108,82 +100,107 @@ function ElementoForm() {
             ))}
             {elementsMensaje && <p className="elMsg">{elementsMensaje}</p>}
             <div className="contenedorElementos">
-            {params.id && <label className="lblElemento">Code</label>}
-            <input
-              placeholder="Enter Element´s code"
-              {...register("codigo")}
-              type="number"
-              className="inputElemento"
-            />
+              {params.id && (
+                <span className="lblElemento">
+                  Code
+                </span>
+              )}
+              <input
+                placeholder="Enter Element´s code"
+                {...register("codigo")}
+                type="number"
+                className="inputElemento"
+              />
             </div>
-            
+
             {errors.codigo?.message && (
               <p className="elError">{errors.codigo.message}</p>
             )}
             <div className="contenedorElementos">
-            {params.id && <label className="lblElemento">Name</label>}
-            <input
-              placeholder="Enter Element´s name"
-              {...register("nombre")}
-              
-              className="inputElemento"
-            />
+              {params.id && (
+                <span  className="lblElemento">
+                  Name
+                </span>
+              )}
+              <input
+                placeholder="Enter Element´s name"
+                {...register("nombre")}
+                className="inputElemento"
+              />
             </div>
             {errors.nombre?.message && (
               <p className="elError">{errors.nombre.message}</p>
             )}
             <div className="contenedorElementos">
-            {params.id && <label className="lblElemento">Description</label>}
-            <input
-              placeholder="Enter Element´s description"
-              {...register("descripcion")}
-              className="inputElemento"
-            />
+              {params.id && (
+                <span  className="lblElemento">
+                  Description
+                </span>
+              )}
+              <input
+                placeholder="Enter Element´s description"
+                {...register("descripcion")}
+                className="inputElemento"
+              />
             </div>
             {errors.descripcion?.message && (
               <p className="elError">{errors.descripcion.message}</p>
             )}
             <div className="contenedorElementos">
-            {params.id && <label className="lblElemento">Category</label>}
-            <select {...register("idCategoria")} className="inputElemento">
-              <option value="0">Select a category..</option>
-              {categories.map((cat) => (
-                <option key={cat.id} value={cat.id}>
-                  {letraCapital(cat.nombre)}
-                </option>
-              ))}
-            </select>
+              {params.id && (
+                <span  className="lblElemento">
+                  Category
+                </span>
+              )}
+              <select
+                {...register("idCategoria")}
+                className="inputElemento"
+              >
+                <option value="0">Select a category..</option>
+                {categories.map((cat) => (
+                  <option key={cat.id} value={cat.id}>
+                    {letraCapital(cat.nombre)}
+                  </option>
+                ))}
+              </select>
             </div>
             {errors.idCategoria?.message && (
               <p className="elError">{errors.idCategoria.message}</p>
             )}
             <div className="contenedorElementos">
-            {params.id && <label className="lblElemento">Stock</label>}
-            <input
-              placeholder="Enter Element´s Stock"
-              {...register("stock")}
-              type="number"
-              className="inputElemento"
-            />
+              {params.id && (
+                <span  className="lblElemento">
+                  Stock
+                </span>
+              )}
+              <input
+                placeholder="Enter Element´s Stock"
+                {...register("stock")}
+                type="number"
+                className="inputElemento"
+              />
             </div>
             {errors.stock?.message && (
               <p className="elError">{errors.stock.message}</p>
             )}
-<div className="contenedorElementos">
-            {params.id && <label className="lblElemento">Value</label>}
-            <input
-              placeholder="Enter Element´s Value"
-              {...register("valorUnitario")}
-              
-              className="inputElemento"
-            />
+            <div className="contenedorElementos">
+              {params.id && (
+                <span className="lblElemento">
+                  Value
+                </span>
+              )}
+              <input
+                placeholder="Enter Element´s Value"
+                {...register("valorUnitario")}
+                className="inputElemento"
+              />
             </div>
             {errors.valorUnitario?.message && (
               <p className="elError">{errors.valorUnitario.message}</p>
             )}
 
             <button className="btnElemento" type="submit">
-              {params.id ? "Edit" : "Save"}
+              {params.id ? "Edit Element" : "Save"}
             </button>
           </form>
         </section>

@@ -84,7 +84,7 @@ function CategoriaForm() {
               <p className="elError">{errors.nombre.message}</p>
             )}
 
-            <button type="submit" className="btnCategoria">{params.id ? "Edit" : "Save"}</button>
+            <button type="submit" className="btnCategoria">{params.id ? "Edit category" : "Save"}</button>
             
           </form>
         </section>

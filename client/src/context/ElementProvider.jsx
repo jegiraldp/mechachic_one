@@ -65,7 +65,7 @@ export const ElementContextProvider = ({ children }) => {
       setElements(elements.filter((Element) => Element.id !== id));
       return null;
     } catch (error) {
-      return "DB error ";
+      setErrors(error.response.data);
     }
   };
 
@@ -80,12 +80,12 @@ export const ElementContextProvider = ({ children }) => {
   };
 
   //update Element
-  const updateElement = async (id, newFields) => {
+  const updateElement = async (codigo, newFields) => {
     try {
-      const res =await updateElementRequest(id, newFields);
+      const res =await updateElementRequest(codigo, newFields);
       setMensaje(res.data);
     } catch (error) {
-      console.log(error);
+      setErrors(error.response.data);
     }
   };
 

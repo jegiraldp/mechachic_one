@@ -70,6 +70,10 @@ function RoutesPG() {
         element={isAuthenticated ? <ServicioForm /> : <LogIn />}
       />
       <Route
+        path="/servicios/edit/:id"
+        element={isAuthenticated ? <ServicioForm /> : <LogIn />}
+      />
+      <Route
         path="/categorias"
         element={isAuthenticated ? <Categorias /> : <LogIn />}
       />

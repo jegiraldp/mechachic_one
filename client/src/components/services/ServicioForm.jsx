@@ -4,40 +4,58 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router-dom";
 import { useService } from "../../context/ServiceProvider";
+import { ServiceSchema } from "../../schemas/service.schema.js";
 
 function ServicioForm() {
   const navigate = useNavigate();
   const params = useParams();
+  
+
+  const {
+    createService,
+    errors: servicesError,
+    mensaje: servicesMensaje,
+    getService,
+    updateService,
+  } = useService();
 
   useEffect(() => {
-    /*const loadCategory = async () => {
+    const loadService = async () => {
       if (params.id) {
-        const laCate = await getCategory(params.id);
-        setValue("nombre", laCate.nombre);
+        const elServicio = await getService(params.id);
+        setValue("id", parseInt(elServicio.id, 10).toString());
+        setValue("nombre", elServicio.nombre);
+        setValue("descripcion", elServicio.descripcion);
+        setValue("valor", elServicio.valor);
       }
     };
-    loadCategory();*/
-  }, [params.id]);
+    loadService();
+  }, []);
+
+ 
 
   const {
     register,
     formState: { errors },
     handleSubmit,
     setValue,
-  } = useForm(/*{
-    resolver: zodResolver(CategorySchema),
-  }*/);
+  } = useForm({
+    resolver: zodResolver(ServiceSchema),
+  });
 
   const onSubmit = handleSubmit((data) => {
-    /*
     if (params.id) {
-      updateCategory(params.id, data);
-
+      updateService(params.id, data);
     } else {
-      data.nombre=data.nombre.toLowerCase();
-      createCategory(data);
+      console.log(servicesError);
+      data.nombre = data.nombre.toLowerCase();
+      data.descripcion = data.descripcion.toLowerCase();
+      createService(data);
       setValue("nombre", "");
-    }*/
+      setValue("id", "");
+      setValue("descripcion", "");
+      setValue("valor", "");
+    }
   });
 
   return (
@@ -51,32 +69,68 @@ function ServicioForm() {
           <h3 className="servicios__titulo">
             {params.id ? "Edit Service" : "Add Service"}
           </h3>
-          
         </section>
-        
+
         <section className="formulario-container">
           <form className="formularioServicio" onSubmit={onSubmit}>
-          <hr /><br />
-            {/*categoriesError.map((e, i) => (
-              <div className="errorCategory" key={i}>
+            <hr />
+            <br />
+            {servicesError.map((e, i) => (
+              <div className="errorService" key={i}>
                 {e}
               </div>
-            ))*/}
-            {/*categoryMensaje && <p className="elMsg">{categoryMensaje}</p>*/}
+            ))}
+            {servicesMensaje && <p className="elMsg">{servicesMensaje}</p>}
             <div className="contenedorElementos">
-            {/*params.id && <label for="nombre" className="lblServicio">Name</label>*/}
-          
-            <input className="inputServicio" id="nombre" name="nombre"
-              placeholder="Enter Service´s name"
-              {...register("nombre")}
-            />
+              {params.id && <label className="lblServicio">Code</label>}
+              <input
+                className="inputServicio"
+                type="number"
+                placeholder="Enter Service´s code"
+                {...register("id")}
+              />
             </div>
-            {/*errors.nombre?.message && (
+            {errors.id?.message && (
+              <p className="elError">{errors.id.message}</p>
+            )}
+            <div className="contenedorElementos">
+              {params.id && <label className="lblServicio">Name</label>}
+              <input
+                className="inputServicio"
+                placeholder="Enter Service´s name"
+                {...register("nombre")}
+              />
+            </div>
+            {errors.nombre?.message && (
               <p className="elError">{errors.nombre.message}</p>
-            )*/}
+            )}
+            <div className="contenedorElementos">
+              {params.id && <label className="lblServicio">Description</label>}
+              <input
+                className="inputServicio"
+                placeholder="Enter Service´s description"
+                {...register("descripcion")}
+              />
+            </div>
+            {errors.descripcion?.message && (
+              <p className="elError">{errors.descripcion.message}</p>
+            )}
 
-            <button type="submit" className="btnServicio">{params.id ? "Edit" : "Save"}</button>
-            
+            <div className="contenedorElementos">
+              {params.id && <label className="lblServicio">Value</label>}
+              <input
+                className="inputServicio"
+                placeholder="Enter Service´s value"
+                {...register("valor")}
+              />
+            </div>
+            {errors.valor?.message && (
+              <p className="elError">{errors.valor.message}</p>
+            )}
+
+            <button type="submit" className="btnServicio">
+              {params.id ? "Edit service" : "Save"}
+            </button>
           </form>
         </section>
       </section>

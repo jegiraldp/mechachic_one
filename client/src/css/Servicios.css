@@ -93,7 +93,7 @@
   }
   
   form .elError,
-  .errorElement {
+  .errorService {
     padding: 0.1rem 1rem 1rem 1rem;
     color: red;
     font-size: small;
