@@ -22,6 +22,26 @@
     cursor: pointer;
     font-size: 4rem;
   }
+
+  div.divBuscarServicio{
+    margin: 10px 0 10px 35px;
+    font-size: small;
+
+  }
+
+  div.divBuscarServicio input.searchInput{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    width: 40%;
+    
+
+  }
+
+
+
   
   .servicios__tabla {
     border: 0;
@@ -48,7 +68,7 @@
   
   tr:hover {
     background-color: rgb(200, 198, 198);
-    font-weight: bold;
+    /*font-weight: bold;*/
   }
   
   .servicios__tabla span {
@@ -135,11 +155,11 @@
   
     font-weight: bold;
   }
-  
+  /*
   span.imgOpcion:hover {
     font-size: 18px;
   }
-  
+  */
   .pagination {
     margin: 1rem 0 0 3rem;
     margin-right: auto;

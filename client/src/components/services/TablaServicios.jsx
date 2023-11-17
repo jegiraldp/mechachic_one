@@ -6,21 +6,33 @@ import React, { useEffect, useState } from "react";
 function TablaServicios() {
   const { services, getServices, deleteService } = useService();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    getServices();
-  }, []);
-
+  const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+
+  /*let results = [];
+  if (!search) {
+    results = services;
+  } else {
+    results = services.filter((dato) =>
+      dato.nombre.toLowerCase().includes(search)
+    );
+  }*/
+
+  const results = !search
+    ? services
+    : services.filter((dato) => dato.nombre.toLowerCase().includes(search));
+
+  //pagination
   const recordsPerPage = 7;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
-  const records = services.slice(firstIndex, lastIndex);
+  const records = results.slice(firstIndex, lastIndex);
   const npage = Math.ceil(services.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
+  //
 
   const borrarService = async (id) => {
-    const confirma = window.confirm("Are you sure you want to dserte ??");
+    const confirma = window.confirm("Are you sure you want to delete ??");
     if (confirma) {
       deleteService(id);
     }
@@ -46,6 +58,15 @@ function TablaServicios() {
     setCurrentPage(id);
   }
 
+  const searcher = (e) => {
+    setSearch(e.target.value);
+    // console.log(e.target.value);
+  };
+
+  useEffect(() => {
+    getServices();
+  }, []);
+
   return (
     <section className="servicios">
       <section className="servicios__title">
@@ -58,7 +79,15 @@ function TablaServicios() {
         </span>
       </section>
       <hr />
-      <br />
+      <div className="divBuscarServicio">
+        <input
+          className="searchInput"
+          type="text"
+          onChange={searcher}
+          placeholder="Search"
+          value={search}
+        />
+      </div>
       <table className="servicios__tabla" border="0" width="60%">
         <thead>
           <tr>

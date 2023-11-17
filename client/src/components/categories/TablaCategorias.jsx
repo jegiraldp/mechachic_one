@@ -2,6 +2,7 @@ import { FaPlusCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useCategory } from "../../context/CategoryProvider";
 import React, { useEffect, useState } from "react";
+import Swal from 'sweetalert2'
 
 //cargarCategories
 function TablaCategorias() {
@@ -16,15 +17,27 @@ function TablaCategorias() {
 
   useEffect(() => {
     cargarCategories();
+    
   }, []);
 
   const borrarTarea = async (id, nc) => {
     setElId(id);
-    const confirmacion = window.confirm("Are you sure you want to delete ??");
+    //const confirmacion = window.confirm("Are you sure you want to delete ??");
 
-    if (confirmacion) {
-      await deleteCategory(id);
-    }
+    Swal.fire({
+      title: "Are you sure to delete?",
+      
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteCategory(id);
+        
+      }
+    });
+
   };
 
   const letraCapital = (nn) => {
@@ -80,7 +93,7 @@ function TablaCategorias() {
         </thead>
         <tbody>
           {records.map((cate) => (
-            <tr key={cate.id}>
+            <tr key={cate.id} className="trCategoria">
               <td>{letraCapital(cate.nombre)}</td>
               <td className="opcionesCat">
                 <span
@@ -100,7 +113,7 @@ function TablaCategorias() {
                   ❌
                   {elId == cate.id &&
                     categoriesError.map((e, i) => (
-                      <div className="errorCategoryDB">{e}</div>
+                      <span className="errorCategoryDB">{e}</span>
                     ))}
                 </span>
               </td>

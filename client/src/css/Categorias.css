@@ -46,8 +46,9 @@ th {
   font-size: 1.7rem;
 }
 
-tr:hover {
+tr.trCategoria:hover {
   background-color: rgb(200, 198, 198);
+  color: rgb(37, 36, 64);
 }
 
 .categorias__tabla span {
@@ -132,6 +133,7 @@ input.inputCategoria {
   padding: 0.1rem 1rem 1rem 1rem;
   color: red;
   font-size: small;
+ 
 }
 
 .elMsg {
@@ -148,9 +150,9 @@ input.inputCategoria {
   font-weight: bold;
 }
 
-span.imgOpcion:hover {
+/*span.imgOpcion:hover {
   font-size: 18px;
-}
+}*/
 
 hr {
   border-color: rgb(247, 184, 68);

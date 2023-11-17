@@ -48,7 +48,7 @@ th {
 
 tr:hover {
   background-color: rgb(200, 198, 198);
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 .elementos__tabla span {
@@ -136,9 +136,7 @@ form .elError,
   font-weight: bold;
 }
 
-span.imgOpcion:hover {
-  font-size: 18px;
-}
+
 
 .pagination {
   margin: 1rem 0 0 3rem;
