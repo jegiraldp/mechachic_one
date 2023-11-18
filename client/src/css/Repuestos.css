@@ -59,6 +59,20 @@ td.opcionesEle span.opciones {
   text-align: center;
 }
 
+
+div.divBuscarElemento {
+  margin: 10px 0 10px 35px;
+  font-size: small;
+}
+
+div.divBuscarElemento input.searchInput {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 40%;
+}
+
 .swal2-popup {
   font-size: 1.2rem;
   font-family: Georgia, serif;

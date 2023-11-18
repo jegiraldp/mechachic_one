@@ -10,17 +10,23 @@ function TablaRepuestos() {
   const { elements, getElements, deleteElement } = useElement();
   const navigate = useNavigate();
   const { categories,cargarCategories } = useCategory();
+  const [search, setSearch] = useState("");
   
   useEffect(() => {
     getElements();
     cargarCategories();
   }, []);
 
+
+  const results = !search
+  ? elements
+  : elements.filter((dato) => dato.nombre.toLowerCase().includes(search));
+
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 7;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
-  const records = elements.slice(firstIndex, lastIndex);
+  const records = results.slice(firstIndex, lastIndex);
   const npage = Math.ceil(elements.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
 
@@ -65,6 +71,11 @@ function TablaRepuestos() {
     setCurrentPage(id)
   }
 
+  const searcher = (e) => {
+    setSearch(e.target.value);
+    // console.log(e.target.value);
+  };
+
   return (
     <section className="elementos">
       <section className="elementos__title">
@@ -77,7 +88,15 @@ function TablaRepuestos() {
         </span>
       </section>
       <hr />
-      <br />
+      <div className="divBuscarElemento">
+        <input
+          className="searchInput"
+          type="text"
+          onChange={searcher}
+          placeholder="Search"
+          value={search}
+        />
+      </div>
       <table className="elementos__tabla" border="0" width="60%">
         <thead>
           <tr>
