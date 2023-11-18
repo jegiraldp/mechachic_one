@@ -22,11 +22,10 @@ function TablaCategorias() {
 
   const borrarTarea = async (id, nc) => {
     setElId(id);
-    //const confirmacion = window.confirm("Are you sure you want to delete ??");
 
     Swal.fire({
       title: "Are you sure to delete?",
-      
+      icon:"warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",

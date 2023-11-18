@@ -62,7 +62,7 @@ export const ServiceContextProvider = ({ children }) => {
     try {
       await deleteServiceRequest(id);
       setServices(services.filter((Service) => Service.id !== id));
-      return null;
+     
     } catch (error) {
       return "DB error ";
     }

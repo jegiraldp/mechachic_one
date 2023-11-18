@@ -59,11 +59,11 @@ export const ElementContextProvider = ({ children }) => {
   };
 
   //Delete element
-  const deleteElement = async (id) => {
+  const deleteElement = async (codigo) => {
     try {
-      await deleteElementRequest(id);
-      setElements(elements.filter((Element) => Element.id !== id));
-      return null;
+      await deleteElementRequest(codigo);
+      setElements(elements.filter((Element) => Element.codigo !== codigo));
+      //return null;
     } catch (error) {
       setErrors(error.response.data);
     }

@@ -2,6 +2,7 @@ import { FaPlusCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useService } from "../../context/ServiceProvider";
 import React, { useEffect, useState } from "react";
+import Swal from 'sweetalert2'
 
 function TablaServicios() {
   const { services, getServices, deleteService } = useService();
@@ -9,16 +10,7 @@ function TablaServicios() {
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
-  /*let results = [];
-  if (!search) {
-    results = services;
-  } else {
-    results = services.filter((dato) =>
-      dato.nombre.toLowerCase().includes(search)
-    );
-  }*/
-
-  const results = !search
+    const results = !search
     ? services
     : services.filter((dato) => dato.nombre.toLowerCase().includes(search));
 
@@ -32,12 +24,24 @@ function TablaServicios() {
   //
 
   const borrarService = async (id) => {
-    const confirma = window.confirm("Are you sure you want to delete ??");
-    if (confirma) {
-      deleteService(id);
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      icon:"warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes,, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteService(id);
+        
+      }
+    });
+    
   };
 
+
+  
   const letraCapital = (nn) => {
     return nn.charAt(0).toUpperCase() + nn.slice(1).toLowerCase();
   };

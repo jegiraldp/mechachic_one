@@ -59,6 +59,11 @@ td.opcionesCat span.imgOpcion {
   text-align: center;
 }
 
+.swal2-popup {
+  font-size: 1.2rem;
+  font-family: Georgia, serif;
+}
+
 form.formularioCategoria {
   align-items: center;
   width: auto;

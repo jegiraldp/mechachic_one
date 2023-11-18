@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useElement } from "../../context/ElementProvider";
 import { useCategory } from "../../context/CategoryProvider";
 import React, { useEffect, useState } from "react";
+import Swal from 'sweetalert2'
+
 
 function TablaRepuestos() {
   const { elements, getElements, deleteElement } = useElement();
   const navigate = useNavigate();
-  //const [elId, setElId] = useState(0);
   const { categories,cargarCategories } = useCategory();
   
   useEffect(() => {
@@ -23,12 +24,20 @@ function TablaRepuestos() {
   const npage = Math.ceil(elements.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
 
-  const borrarElemento=async(id)=>{
-    //setElId(id);
-    const confirma= window.confirm("Are you sure you want to delete ??")
-    if(confirma){
-      deleteElement(id)
-    }
+  const borrarElemento=async(codigo)=>{
+    Swal.fire({
+      title: "Are you sure?",
+      icon:"warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteElement(codigo);
+        
+      }
+    });
   }
 
   const letraCapital=(nn)=>{
