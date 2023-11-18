@@ -44,7 +44,7 @@ function LogIn() {
             {e}
           </div>
         ))}
-        <input placeholder="Username" {...register("userName")} className="inputLogin"/>
+        <input placeholder="Username" {...register("userName")} className="inputLogin" id="username"/>
         {errors.userName?.message && 
           <p className="elError">{errors.userName.message}</p>
         }
@@ -54,6 +54,7 @@ function LogIn() {
           placeholder="Password"
           {...register("password")}
           className="inputLogin"
+          id="password"
         />
         {errors.password?.message && (
           <p className="elError">{errors.password.message}</p>

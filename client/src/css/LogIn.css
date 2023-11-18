@@ -45,10 +45,28 @@
   width: auto;
 }
 
+.login__form input#username::placeholder {
+  background-image: url("../img/username.png") ;
+  background-repeat: no-repeat;
+   background-position: right center;
+}
+
+.login__form input#password::placeholder {
+  background-image: url("../img/password.png") ;
+  background-repeat: no-repeat;
+   background-position: right center;
+}
+
+#codigo::placeholder {
+  background-image: url("../img/password.png") ;
+  background-repeat: no-repeat;
+   background-position: right center;
+}
+
 input.inputLogin:focus{
   
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box shadow */
-  outline: none; /* Remove the default focus outline (optional) */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+  outline: none; 
   background-color: rgb(233, 220, 246);
   border: solid 2px rgb(37,36,64);
 }

@@ -126,6 +126,7 @@ function ElementoForm() {
                 placeholder="Enter Element´s name"
                 {...register("nombre")}
                 className="inputElemento"
+                id="nombreElemento"
               />
             </div>
             {errors.nombre?.message && (
@@ -141,6 +142,7 @@ function ElementoForm() {
                 placeholder="Enter Element´s description"
                 {...register("descripcion")}
                 className="inputElemento"
+                id="descripcionElemento"
               />
             </div>
             {errors.descripcion?.message && (
@@ -178,6 +180,7 @@ function ElementoForm() {
                 {...register("stock")}
                 type="number"
                 className="inputElemento"
+                id="stockElemento"
               />
             </div>
             {errors.stock?.message && (
@@ -193,6 +196,7 @@ function ElementoForm() {
                 placeholder="Enter Element´s Value"
                 {...register("valorUnitario")}
                 className="inputElemento"
+                id="valorElemento"
               />
             </div>
             {errors.valorUnitario?.message && (

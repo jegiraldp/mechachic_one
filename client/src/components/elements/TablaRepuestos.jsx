@@ -93,7 +93,7 @@ function TablaRepuestos() {
           className="searchInput"
           type="text"
           onChange={searcher}
-          placeholder="Search"
+          placeholder="Search by name"
           value={search}
         />
       </div>

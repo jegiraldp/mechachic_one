@@ -1,8 +1,9 @@
 .servicios {
-  border-radius: 1rem;
+  /*border-radius: 1rem;*/
   margin: 2rem;
   background-color: rgb(183, 182, 213);
   padding-bottom: 50px;
+  border: 2px solid rgb(247, 184, 68);
 }
 
 .servicios__title {
@@ -24,7 +25,7 @@
 }
 
 div.divBuscarServicio {
-  margin: 10px 0 10px 35px;
+  margin: 10px 0 10px 30px;
   font-size: small;
 }
 
@@ -34,7 +35,36 @@ div.divBuscarServicio input.searchInput {
   border-radius: 5px;
   font-size: 16px;
   width: 40%;
+  box-shadow: 2px 3px gray;
+
 }
+div.divBuscarServicio input.searchInput::placeholder {
+  background-image: url("../img/search.png") ;
+  background-repeat: no-repeat;
+   background-position: right center;
+}
+
+
+
+
+#nombreServicio::placeholder {
+  background-image: url("../img/service.png") ;
+  background-repeat: no-repeat;
+   background-position: right center;
+}
+
+#descripcionServicio::placeholder {
+  background-image: url("../img/description.png") ;
+  background-repeat: no-repeat;
+   background-position: right center;
+}
+
+#valorServicio::placeholder {
+  background-image: url("../img/price.png") ;
+  background-repeat: no-repeat;
+   background-position: right center;
+}
+
 
 .servicios__tabla {
   border: 0;
@@ -108,6 +138,7 @@ select.inputServicio {
   width: 90%;
   margin-top: 10px;
   margin-left: auto;
+  box-shadow: 2px 3px gray;
 }
 
 form .elError,

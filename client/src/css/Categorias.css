@@ -1,5 +1,5 @@
 .categorias {
-  border-radius: 1rem;
+  border: 2px solid rgb(247, 184, 68);
   margin: 2rem;
   background-color: rgb(183, 182, 213);
   padding-bottom: 50px;
@@ -94,6 +94,13 @@ input.inputCategoria {
   font-size: 16px;
   width: 95%;
   margin-left: auto;
+  box-shadow: 2px 3px gray;
+}
+
+input.inputCategoria::placeholder {
+  background-image: url("../img/category.png") ;
+  background-repeat: no-repeat;
+   background-position: right center;
 }
 
 .categorias form .elError {

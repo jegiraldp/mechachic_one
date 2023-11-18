@@ -87,6 +87,7 @@ function ServicioForm() {
                 className="inputServicio"
                 type="number"
                 placeholder="Enter Service´s code"
+                id="codigoServicio"
                 {...register("id")}
               />
             </div>
@@ -99,6 +100,7 @@ function ServicioForm() {
                 className="inputServicio"
                 placeholder="Enter Service´s name"
                 {...register("nombre")}
+                id="nombreServicio"
               />
             </div>
             {errors.nombre?.message && (
@@ -110,6 +112,7 @@ function ServicioForm() {
                 className="inputServicio"
                 placeholder="Enter Service´s description"
                 {...register("descripcion")}
+                id="descripcionServicio"
               />
             </div>
             {errors.descripcion?.message && (
@@ -122,6 +125,7 @@ function ServicioForm() {
                 className="inputServicio"
                 placeholder="Enter Service´s value"
                 {...register("valor")}
+                id="valorServicio"
               />
             </div>
             {errors.valor?.message && (

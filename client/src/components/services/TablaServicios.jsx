@@ -84,11 +84,12 @@ function TablaServicios() {
       </section>
       <hr />
       <div className="divBuscarServicio">
+      
         <input
           className="searchInput"
           type="text"
           onChange={searcher}
-          placeholder="Search"
+          placeholder="Search by name"
           value={search}
         />
       </div>
