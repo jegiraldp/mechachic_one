@@ -1,0 +1,238 @@
+.persons {
+    /*border-radius: 1rem;*/
+    margin: 2rem;
+    background-color: rgb(183, 182, 213);
+    padding-bottom: 50px;
+    border: 2px solid rgb(247, 184, 68);
+  }
+  
+  .persons__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .persons__titulo {
+    font-size: 3rem;
+    padding: 2rem;
+    color: rgb(37, 36, 64);
+    text-align: center;
+  }
+  
+  .persons__boton {
+    cursor: pointer;
+    font-size: 4rem;
+  }
+  
+  div.divBuscarPersona {
+    margin: 10px 0 10px 30px;
+    font-size: small;
+  }
+  
+  div.divBuscarPersona input.searchInput {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 40%;
+    box-shadow: 2px 3px gray;
+  
+  }
+  div.divBuscarPersona input.searchInput::placeholder {
+    background-image: url("../img/search.png") ;
+    background-repeat: no-repeat;
+     background-position: right center;
+  }
+  
+  
+  /*Form*/
+  
+  #nombreServicio::placeholder {
+    background-image: url("../img/service.png") ;
+    background-repeat: no-repeat;
+     background-position: right center;
+  }
+  
+  #descripcionServicio::placeholder {
+    background-image: url("../img/description.png") ;
+    background-repeat: no-repeat;
+     background-position: right center;
+  }
+  
+  #valorServicio::placeholder {
+    background-image: url("../img/price.png") ;
+    background-repeat: no-repeat;
+     background-position: right center;
+  }
+  
+  
+  .persons__tabla {
+    border: 0;
+    width: 95%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 2px solid;
+  }
+  
+  .persons__tabla td,
+  th {
+    padding: 0.8rem;
+    text-align: left;
+    border: 0px;
+  }
+  
+  .persons__tabla th {
+    background-color: rgb(37, 36, 64);
+    color: white;
+  
+    font-size: 1.7rem;
+  }
+  
+  tr:hover {
+    background-color: rgb(200, 198, 198);
+    /*font-weight: bold;*/
+  }
+  
+  .persons__tabla span {
+    cursor: pointer;
+  }
+  
+  td.opcionesPer span.opciones {
+    text-align: center;
+  }
+  
+  .swal2-popup {
+    font-size: 1.2rem;
+    font-family: Georgia, serif;
+  }
+  
+  form.formularioServicio {
+    align-items: center;
+    width: auto;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(183, 182, 213);
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+  
+  .contenedorpersons {
+    display: flex;
+  }
+  
+  label.lblServicio {
+    color: rgb(37, 36, 64);
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: medium;
+  }
+  
+  input.inputServicio,
+  select.inputServicio {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    width: 90%;
+    margin-top: 10px;
+    margin-left: auto;
+    box-shadow: 2px 3px gray;
+  }
+  
+  form .elError,
+  .errorService {
+    padding: 0.1rem 1rem 1rem 1rem;
+    color: red;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .formularioServicio .btnServicio {
+    background-color: rgb(37, 36, 64);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .formulario-container {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+  
+  .btnServicio:hover {
+    background-color: rgb(79, 79, 79);
+  }
+  
+  .elMsg {
+    padding: 0.1rem 1rem 1rem 1rem;
+    color: rgb(24, 5, 189);
+    font-size: small;
+  }
+  
+  .regresar:hover {
+    font-size: 17px;
+    cursor: pointer;
+  
+    font-weight: bold;
+  }
+  
+  .pagination {
+    margin: 1rem 0 0 3rem;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  li.page-item:hover:not(.activo),
+  li.page-item-next:hover,
+  li.page-item-prev:hover {
+    background-color: gray;
+  }
+  
+  li.page-item {
+    list-style: none;
+    float: left;
+    border: 1px solid gray;
+    padding: 6px 15px;
+    color: black;
+  }
+  
+  li.activo {
+    background-color: rgb(37, 36, 64);
+    list-style: none;
+    float: left;
+    border: 1px solid gray;
+    padding: 6px 15px;
+  }
+  li.activo a {
+    color: white;
+  }
+  
+  li.page-item-prev {
+    list-style: none;
+    float: left;
+    border: 1px solid gray;
+    padding: 6px 15px;
+    color: black;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  li.page-item-next {
+    list-style: none;
+    float: left;
+    border: 1px solid gray;
+    padding: 6px 15px;
+    color: black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  

@@ -8,6 +8,16 @@ export const getPersons = async (req, res) => {
     return res.status(500).json({ mensaje: error.message });
   }
 };
+//providers
+export const getProviders = async (req, res) => {
+  try {
+    const [result] = await pool.query("select * from personas where isProvider=1 order by id asc");
+    res.json(result);
+  } catch (error) {
+    return res.status(500).json({ mensaje: error.message });
+  }
+};
+
 
 export const getPerson = async (req, res) => {
   try {

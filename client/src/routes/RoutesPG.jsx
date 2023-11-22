@@ -16,6 +16,7 @@ import CategoriaForm from "../components/categories/CategoriaForm";
 import ServicioForm from "../components/services/ServicioForm";
 import Categorias from "../pages/inventario/Categorias";
 import Servicios from "../pages/inventario/Servicios";
+import Proveedores  from "../pages/persons/Proveedores";
 
 
 
@@ -85,10 +86,10 @@ function RoutesPG() {
         path="/categorias/edit/:id"
         element={isAuthenticated ? <CategoriaForm /> : <LogIn />}
       />
-      {/* Contactos */}
+      {/* Proveedores */}
       <Route
-        path="/contactos"
-        element={isAuthenticated ? <Contactos /> : <LogIn />}
+        path="/proveedores"
+        element={isAuthenticated ? <Proveedores /> : <LogIn />}
       />
       {/* Informes */}
       <Route

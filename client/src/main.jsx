@@ -6,6 +6,7 @@ import { AuthProvider } from "./context/AuthContext";
 import { CategoryContextProvider } from "./context/CategoryProvider.jsx";
 import { ElementContextProvider } from "./context/ElementProvider.jsx";
 import { ServiceContextProvider } from "./context/ServiceProvider.jsx";
+import { PersonContextProvider } from "./context/PersonProvider.jsx";
 
 import { BrowserRouter } from "react-router-dom";
 
@@ -15,9 +16,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <CategoryContextProvider>
         <ElementContextProvider>
           <ServiceContextProvider>
+            <PersonContextProvider>
             <BrowserRouter>
               <App />
             </BrowserRouter>
+            </PersonContextProvider>
           </ServiceContextProvider>
         </ElementContextProvider>
       </CategoryContextProvider>
