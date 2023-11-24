@@ -1,6 +1,6 @@
 import {
     getProvidersRequest,
-    createPersonRequest,
+    createProviderRequest,
     deletePersonRequest,
     getPersonRequest,
     updatePersonRequest,
@@ -28,6 +28,17 @@ import {
     const respues = await getProvidersRequest();
     setProviders(respues.data);
   }
+
+  //createProvider
+  const createProvider = async (Provider) => {
+    try {
+      await createProviderRequest(Provider);
+      setMensaje("Provider created ✔️");
+    } catch (error) {
+      //console.log(error.response.data)
+      setErrors(error.response.data);
+    }
+  };
 
     return (
         <PersonContext.Provider

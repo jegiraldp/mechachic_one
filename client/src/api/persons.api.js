@@ -3,6 +3,9 @@ import axios from "axios";
 export const getProvidersRequest = async () =>
   await axios.get("http://localhost:4000/providers");
 
+  export const createProviderRequest = async (provider) =>
+  await axios.post("http://localhost:4000/providers", provider);
+
 export const createPersonRequest = async (person) =>
   await axios.post("http://localhost:4000/persons", person);
 

@@ -1,6 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import Contactos from "../pages/contact/Contactos";
 import Informes from "../pages/informes/Informes";
 import Trabajadores from "../pages/trabajadores/Trabajadores";
 import Register from "../components/users/Register";
@@ -17,6 +16,7 @@ import ServicioForm from "../components/services/ServicioForm";
 import Categorias from "../pages/inventario/Categorias";
 import Servicios from "../pages/inventario/Servicios";
 import Proveedores  from "../pages/persons/Proveedores";
+import ProveedorForm from "../components/persons/ProveedorForm";
 
 
 
@@ -90,6 +90,10 @@ function RoutesPG() {
       <Route
         path="/proveedores"
         element={isAuthenticated ? <Proveedores /> : <LogIn />}
+      />
+      <Route
+        path="/proveedores/new"
+        element={isAuthenticated ? <ProveedorForm /> : <LogIn />}
       />
       {/* Informes */}
       <Route

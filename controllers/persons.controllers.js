@@ -18,6 +18,44 @@ export const getProviders = async (req, res) => {
   }
 };
 
+export const newProvider = async (req, res) => {
+  try {
+    const {
+      id,
+      firstName,
+      lastName,
+      email,
+      phone,
+      address,
+      isProvider,
+      isCustomer,
+      isEmployed,
+      isNatural,
+      isEmpresa,
+    } = req.body;
+    isProvider=1
+    const [result] = await pool.query(
+      "insert into personas (id,firstName,lastName,email,phone,address,isProvider,isCustomer,isEmployed,isNatural,isEmpresa) values (?,?,?,?,?,?,?,?,?,?,?)",
+      [
+        id,
+        firstName,
+        lastName,
+        email,
+        phone,
+        address,
+        isProvider,
+        isCustomer,
+        isEmployed,
+        isNatural,
+        isEmpresa,
+      ]
+    );
+    res.json(result);
+  } catch (error) {
+    return res.status(500).json({ mensaje: error.message });
+  }
+};
+
 
 export const getPerson = async (req, res) => {
   try {

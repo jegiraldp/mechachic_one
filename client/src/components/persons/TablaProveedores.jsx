@@ -54,7 +54,7 @@ function TablaProveedores() {
         <h3 className="persons__titulo">Providers</h3>
         <span
           className="persons__boton"
-          onClick={() => navigate("/persons/new")}
+          onClick={() => navigate("/proveedores/new")}
         >
           <FaPlusCircle style={{ color: "darkorange" }} />
         </span>
