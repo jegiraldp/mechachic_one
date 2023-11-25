@@ -19,7 +19,8 @@ export const getProviders = async (req, res) => {
 };
 
 export const newProvider = async (req, res) => {
-  try {
+  
+    try {
     const {
       id,
       firstName,
@@ -33,7 +34,7 @@ export const newProvider = async (req, res) => {
       isNatural,
       isEmpresa,
     } = req.body;
-    isProvider=1
+
     const [result] = await pool.query(
       "insert into personas (id,firstName,lastName,email,phone,address,isProvider,isCustomer,isEmployed,isNatural,isEmpresa) values (?,?,?,?,?,?,?,?,?,?,?)",
       [
@@ -50,6 +51,7 @@ export const newProvider = async (req, res) => {
         isEmpresa,
       ]
     );
+
     res.json(result);
   } catch (error) {
     return res.status(500).json({ mensaje: error.message });

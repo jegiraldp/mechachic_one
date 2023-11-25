@@ -47,19 +47,19 @@
   
   /*Form*/
   
-  #nombreServicio::placeholder {
-    background-image: url("../img/service.png") ;
+  #nombrePersona::placeholder {
+    background-image: url("../img/Person.png") ;
     background-repeat: no-repeat;
      background-position: right center;
   }
   
-  #descripcionServicio::placeholder {
+  #descripcionPersona::placeholder {
     background-image: url("../img/description.png") ;
     background-repeat: no-repeat;
      background-position: right center;
   }
   
-  #valorServicio::placeholder {
+  #valorPersona::placeholder {
     background-image: url("../img/price.png") ;
     background-repeat: no-repeat;
      background-position: right center;
@@ -107,7 +107,7 @@
     font-family: Georgia, serif;
   }
   
-  form.formularioServicio {
+  form.formularioPersona {
     align-items: center;
     width: auto;
     border: none;
@@ -121,15 +121,15 @@
     display: flex;
   }
   
-  label.lblServicio {
+  label.lblPersona {
     color: rgb(37, 36, 64);
     margin-right: 10px;
     font-weight: bold;
     font-size: medium;
   }
   
-  input.inputServicio,
-  select.inputServicio {
+  input.inputPersona,
+  select.inputPersona {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -142,7 +142,7 @@
   }
   
   form .elError,
-  .errorService {
+  .errorPerson {
     padding: 0.1rem 1rem 1rem 1rem;
     color: red;
     font-size: small;
@@ -150,7 +150,7 @@
     text-align: center;
   }
   
-  .formularioServicio .btnServicio {
+  .formularioPersona .btnPersona {
     background-color: rgb(37, 36, 64);
     color: white;
     padding: 12px 20px;
@@ -168,7 +168,7 @@
     margin-left: 30px;
   }
   
-  .btnServicio:hover {
+  .btnPersona:hover {
     background-color: rgb(79, 79, 79);
   }
   

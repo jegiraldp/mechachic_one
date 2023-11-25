@@ -22,6 +22,24 @@ import {
     const [errors, setErrors] = useState([]);
     const [mensaje, setMensaje] = useState("");
 
+    useEffect(() => {
+      if (errors.length > 0) {
+        const timer = setTimeout(() => {
+          setErrors([]);
+        }, 4000);
+        return () => clearTimeout(timer);
+      }
+    }, [errors]);
+  
+    useEffect(() => {
+      if (mensaje) {
+        const timer = setTimeout(() => {
+          setMensaje("");
+        }, 4000);
+        return () => clearTimeout(timer);
+      }
+    }, [mensaje]);
+
 
     //cargar Providers
   async function getProviders() {
@@ -32,6 +50,7 @@ import {
   //createProvider
   const createProvider = async (Provider) => {
     try {
+
       await createProviderRequest(Provider);
       setMensaje("Provider created ✔️");
     } catch (error) {
@@ -44,6 +63,7 @@ import {
         <PersonContext.Provider
           value={{
             getProviders,
+            createProvider,
             providers,
             errors,
             mensaje,

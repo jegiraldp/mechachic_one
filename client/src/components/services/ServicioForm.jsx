@@ -44,10 +44,11 @@ function ServicioForm() {
   });
 
   const onSubmit = handleSubmit((data) => {
+    //console.log(data)
     if (params.id) {
       updateService(params.id, data);
     } else {
-      console.log(servicesError);
+      //console.log(servicesError);
       data.nombre = data.nombre.toLowerCase();
       data.descripcion = data.descripcion.toLowerCase();
       createService(data);
