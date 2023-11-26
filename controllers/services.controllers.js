@@ -7,7 +7,7 @@ export const getServices = async (req, res) => {
     );
     res.json(result);
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+    return res.status(400).json(["Error ⚠️"]);
   }
 };
 
@@ -20,7 +20,8 @@ export const getService = async (req, res) => {
       return res.status(404).json({ mensaje: "Service does not exists" });
     res.json(result[0]);
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+    return res.status(400).json(["Error ⚠️"]);
+
   }
 };
 
@@ -40,7 +41,8 @@ export const newService = async (req, res) => {
     );
     res.json(result);
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+    return res.status(400).json(["Error ⚠️"]);
+    ;
   }
 };
 
@@ -69,6 +71,7 @@ export const deleteService = async (req, res) => {
       return res.status(404).json({ mensaje: "Service does not exists" });
     res.json("Service deleted");
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+    return res.status(400).json(["Error ⚠️"]);
+
   }
 };

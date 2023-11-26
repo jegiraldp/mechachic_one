@@ -13,7 +13,7 @@ function ProveedorForm() {
   const {
     createProvider,
     errors: personsError,
-    mensaje: personsMensaje,
+    mensajep,
     /* getService,
       updateService,*/
   } = usePerson();
@@ -29,7 +29,7 @@ function ProveedorForm() {
       }
     };
     loadPerson();
-  }, []);
+  }, [params.id]);
 
   const {
     register,
@@ -81,12 +81,15 @@ function ProveedorForm() {
           <form className="formularioPersona" onSubmit={onSubmit}>
             <hr />
             <br />
-            {Array.isArray(personsError) && personsError.map((e, i) => (
+            {personsError.map((e, i) => (
               <div className="errorPerson" key={i}>
                 {e}
               </div>
             ))}
-            {personsMensaje && <p className="elMsg">{personsMensaje}</p>}
+
+
+            
+            {mensajep && <p className="elMsg">{mensajep}</p>}
             <div className="contenedorElementos">
               {params.id && <label className="lblPersona">ID</label>}
               <input

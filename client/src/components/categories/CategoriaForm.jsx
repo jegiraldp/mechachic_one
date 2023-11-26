@@ -73,7 +73,7 @@ function CategoriaForm() {
             ))}
             {categoryMensaje && <p className="elMsg">{categoryMensaje}</p>}
             <div className="contenedorElementos">
-            {params.id && <label for="nombre" className="lblCategoria">Name</label>}
+            {params.id && <label htmlFor="nombre" className="lblCategoria">Name</label>}
            
             <input className="inputCategoria" id="nombre" name="nombre"
               placeholder="Enter Categories´s name"

@@ -53,7 +53,7 @@ export const ServiceContextProvider = ({ children }) => {
       setMensaje("Service created ✔️");
     } catch (error) {
       //console.log(error.response.data)
-      setErrors(error.response.data);
+      setErrors([error.response.data]);
     }
   };
 
@@ -74,7 +74,9 @@ export const ServiceContextProvider = ({ children }) => {
       const respon = await getServiceRequest(id);
       return respon.data;
     } catch (error) {
-      console.log(error);
+      //console.log(error);
+      setErrors([error.response.data]);
+
     }
   };
 
@@ -84,7 +86,7 @@ export const ServiceContextProvider = ({ children }) => {
       const res = await updateServiceRequest(id, newFields);
       setMensaje(res.data);
     } catch (error) {
-      setErrors(error.response.data);
+      setErrors([error.response.data]);
     }
   };
 

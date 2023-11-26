@@ -58,7 +58,8 @@ export const newElement = async (req, res) => {
     );
     res.json(result);
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+    return res.status(400).json(["Error ⚠️"]);
+
   }
 };
 
@@ -88,7 +89,8 @@ export const updateElement = async (req, res) => {
         return res.status(404).json({ mensaje: "Element does not exists" });
       res.json("Element´s stock updated");
     } catch (error) {
-      return res.status(500).json({ mensaje: error.message });
+      return res.status(400).json(["Error ⚠️"]);
+
     }
   };
 
@@ -102,6 +104,7 @@ export const updateElement = async (req, res) => {
         return res.status(404).json({ mensaje: "Element does not exists" });
       res.json("Element deleted");
     } catch (error) {
-      return res.status(500).json({ mensaje: error.message });
+      return res.status(400).json(["Error ⚠️"]);
+
     }
   };

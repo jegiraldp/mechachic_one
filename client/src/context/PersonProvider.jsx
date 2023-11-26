@@ -20,7 +20,7 @@ import {
   export const PersonContextProvider = ({ children }) => {
     const [providers, setProviders] = useState([]);
     const [errors, setErrors] = useState([]);
-    const [mensaje, setMensaje] = useState("");
+    const [mensajep, setMensajep] = useState("");
 
     useEffect(() => {
       if (errors.length > 0) {
@@ -32,13 +32,13 @@ import {
     }, [errors]);
   
     useEffect(() => {
-      if (mensaje) {
+      if (mensajep) {
         const timer = setTimeout(() => {
-          setMensaje("");
+          setMensajep("");
         }, 4000);
         return () => clearTimeout(timer);
       }
-    }, [mensaje]);
+    }, [mensajep]);
 
 
     //cargar Providers
@@ -52,10 +52,10 @@ import {
     try {
 
       await createProviderRequest(Provider);
-      setMensaje("Provider created ✔️");
+      setMensajep("Provider created ✔️");
     } catch (error) {
       //console.log(error.response.data)
-      setErrors(error.response.data);
+      setErrors([error.response.data]);
     }
   };
 
@@ -66,7 +66,7 @@ import {
             createProvider,
             providers,
             errors,
-            mensaje,
+            mensajep,
           }}
         >
           {children}

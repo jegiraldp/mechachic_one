@@ -52,7 +52,7 @@ export const CategoryContextProvider = ({ children }) => {
       setCategories(categories.filter((category) => category.id !== id));
       
     } catch (error) {
-      setErrors(error.response.data);
+      setErrors([error.response.data]);
     }
   };
 
@@ -62,7 +62,8 @@ export const CategoryContextProvider = ({ children }) => {
       await createCategoryRequest(category);
       setMensaje("Category created ✔️");
     } catch (error) {
-      setErrors(error.response.data);
+     // console.log([error.response.data])
+      setErrors([error.response.data]);
     }
   };
 
@@ -72,7 +73,9 @@ export const CategoryContextProvider = ({ children }) => {
       const respon = await getCategoryRequest(id);
       return respon.data;
     } catch (error) {
-      console.log(error);
+      //console.log(error);
+      setErrors([error.response.data]);
+
     }
   };
 
@@ -82,7 +85,7 @@ export const CategoryContextProvider = ({ children }) => {
       const res = await updateCategoryRequest(id, newFields);
       setMensaje(res.data);
     } catch (error) {
-      setErrors(error.response.data);
+      setErrors([error.response.data]);
     }
   };
 

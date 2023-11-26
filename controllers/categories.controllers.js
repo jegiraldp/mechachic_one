@@ -7,7 +7,8 @@ export const getCategories = async (req, res) => {
     );
     res.json(result);
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+    return res.status(400).json(["Error ⚠️"]);
+
   }
 };
 
@@ -21,7 +22,8 @@ export const getCategory = async (req, res) => {
 
     res.json(result[0]);
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+    return res.status(400).json(["Error ⚠️"]);
+
   }
 };
 
@@ -43,7 +45,9 @@ export const newCategory = async (req, res) => {
     );
     res.json(result);
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+    //return res.status(400).json({ mensaje: error.message });
+    return res.status(400).json(["Categorie´s name already exists.. ⚠️"]);
+
   }
 };
 
@@ -67,7 +71,8 @@ export const updateCategory = async (req, res) => {
 
     res.json("Category updated..✔️");
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+    return res.status(400).json(["Error ⚠️"]);
+
   }
 };
 

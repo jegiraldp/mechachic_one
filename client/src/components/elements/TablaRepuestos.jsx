@@ -120,7 +120,7 @@ function TablaRepuestos() {
               <td>{ele.stock}</td>
               <td>{ele.valorUnitario}</td>
               <td className="opcionesEle">
-                <span
+                <span key={`edit-${ele.codigo}`}
                   className="opciones"
                   onClick={() => navigate(`/repuestos/edit/${ele.codigo}`)}
                 >
@@ -128,7 +128,7 @@ function TablaRepuestos() {
                 </span>
               </td>
               <td className="opcionesEle">
-                <span className="opciones"
+                <span className="opciones" key={`delete-${ele.codigo}`}
                   onClick={async () => {
                     await borrarElemento(ele.codigo);
                   }}

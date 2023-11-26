@@ -34,7 +34,6 @@ function TablaCategorias() {
     }).then((result) => {
       if (result.isConfirmed) {
         deleteCategory(id);
-        
       }
     });
 
@@ -96,7 +95,7 @@ function TablaCategorias() {
             <tr key={cate.id} className="trCategoria">
               <td>{letraCapital(cate.nombre)}</td>
               <td className="opcionesCat">
-                <span
+                <span key={`edit-${cate.id}`}
                   className="imgOpcion"
                   onClick={() => navigate(`/categorias/edit/${cate.id}`)}
                 >
@@ -104,7 +103,7 @@ function TablaCategorias() {
                 </span>
               </td>
               <td className="opcionesCat">
-                <span
+                <span key={`delete-${cate.id}`}
                   className="imgOpcion"
                   onClick={() => {
                     borrarTarea(cate.id, cate.nombre);
@@ -113,7 +112,7 @@ function TablaCategorias() {
                   ❌
                   {elId == cate.id &&
                     categoriesError.map((e, i) => (
-                      <span className="errorCategoryDB">{e}</span>
+                      <span key={`db_error-${cate.id}`}className="errorCategoryDB">{e}</span>
                     ))}
                 </span>
               </td>

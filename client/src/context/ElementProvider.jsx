@@ -54,7 +54,7 @@ export const ElementContextProvider = ({ children }) => {
       setMensaje("Element created ✔️");
     } catch (error) {
       //console.log(error);
-      setErrors(error.response.data);
+      setErrors([error.response.data]);
     }
   };
 
@@ -65,7 +65,7 @@ export const ElementContextProvider = ({ children }) => {
       setElements(elements.filter((Element) => Element.codigo !== codigo));
       //return null;
     } catch (error) {
-      setErrors(error.response.data);
+      setErrors([error.response.data]);
     }
   };
 
@@ -75,7 +75,8 @@ export const ElementContextProvider = ({ children }) => {
       const respon = await getElementRequest(id);
       return respon.data;
     } catch (error) {
-      console.log(error);
+      setErrors([error.response.data]);
+      //console.log(error);
     }
   };
 
@@ -85,7 +86,7 @@ export const ElementContextProvider = ({ children }) => {
       const res =await updateElementRequest(codigo, newFields);
       setMensaje(res.data);
     } catch (error) {
-      setErrors(error.response.data);
+      setErrors([error.response.data]);
     }
   };
 

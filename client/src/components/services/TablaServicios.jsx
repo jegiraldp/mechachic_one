@@ -112,7 +112,7 @@ function TablaServicios() {
               <td>{letraCapital(ser.descripcion)}</td>
               <td>{ser.valor}</td>
               <td className="opcionesSer">
-                <span
+                <span key={`edit-${ser.id}`}
                   className="opciones"
                   onClick={() => navigate(`/servicios/edit/${ser.id}`)}
                 >
@@ -120,7 +120,7 @@ function TablaServicios() {
                 </span>
               </td>
               <td className="opcionesSer">
-                <span
+                <span key={`delete-${ser.id}`}
                   className="opciones"
                   onClick={async () => {
                     await borrarService(ser.id);
