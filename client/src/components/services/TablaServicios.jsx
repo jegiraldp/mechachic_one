@@ -5,16 +5,20 @@ import React, { useEffect, useState } from "react";
 import Swal from 'sweetalert2'
 
 function TablaServicios() {
+  
   const { services, getServices, deleteService } = useService();
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
+
+  
   const [currentPage, setCurrentPage] = useState(1);
 
     const results = !search
     ? services
     : services.filter((dato) => dato.nombre.toLowerCase().includes(search));
 
-  //pagination
+  
+    //pagination
   const recordsPerPage = 7;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
@@ -22,6 +26,8 @@ function TablaServicios() {
   const npage = Math.ceil(services.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
   //
+
+  
 
   const borrarService = async (id) => {
     Swal.fire({
@@ -39,14 +45,13 @@ function TablaServicios() {
     });
     
   };
-
-
-  
+ 
   const letraCapital = (nn) => {
     return nn.charAt(0).toUpperCase() + nn.slice(1).toLowerCase();
   };
 
   function nextPage() {
+
     if (currentPage !== npage) {
       setCurrentPage(currentPage + 1);
     }
@@ -64,7 +69,6 @@ function TablaServicios() {
 
   const searcher = (e) => {
     setSearch(e.target.value);
-    // console.log(e.target.value);
   };
 
   useEffect(() => {
@@ -84,14 +88,14 @@ function TablaServicios() {
       </section>
       <hr />
       <div className="divBuscarServicio">
-      
+      {currentPage == 1 &&
         <input
           className="searchInput"
           type="text"
           onChange={searcher}
           placeholder="Search by name"
-          value={search}
-        />
+        />}
+        
       </div>
       <table className="servicios__tabla" border="0" width="60%">
         <thead>

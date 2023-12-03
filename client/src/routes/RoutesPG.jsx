@@ -95,6 +95,10 @@ function RoutesPG() {
         path="/proveedores/new"
         element={isAuthenticated ? <ProveedorForm /> : <LogIn />}
       />
+      <Route
+        path="/proveedores/edit/:id"
+        element={isAuthenticated ? <ProveedorForm /> : <LogIn />}
+      />
       {/* Informes */}
       <Route
         path="/informes"

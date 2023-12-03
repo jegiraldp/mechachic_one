@@ -59,6 +59,19 @@ export const newProvider = async (req, res) => {
   }
 };
 
+export const getProvider = async (req, res) => {
+  try {
+    const [result] = await pool.query("select * from personas where id = ?", [
+      req.params.id,
+    ]);
+    if (result.length === 0)
+      return res.status(404).json({ mensaje: "Provider does not exists" });
+    res.json(result[0]);
+  } catch (error) {
+    return res.status(500).json({ mensaje: error.message });
+  }
+};
+
 
 export const getPerson = async (req, res) => {
   try {

@@ -34,35 +34,44 @@ div.divBuscarServicio input.searchInput {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  width: 40%;
+  width: 30%;
   box-shadow: 2px 3px gray;
-
 }
+
+
 div.divBuscarServicio input.searchInput::placeholder {
   background-image: url("../img/search.png") ;
   background-repeat: no-repeat;
    background-position: right center;
 }
 
-
-
+#codigoServicio::placeholder {
+  background-image: url("../img/id_code.png") ;
+  background-repeat: no-repeat;
+   background-position: right center;
+}
 
 #nombreServicio::placeholder {
   background-image: url("../img/service.png") ;
   background-repeat: no-repeat;
    background-position: right center;
+   margin-right: 15px;
 }
 
 #descripcionServicio::placeholder {
   background-image: url("../img/description.png") ;
   background-repeat: no-repeat;
    background-position: right center;
+   margin-right: 15px;
+
 }
 
 #valorServicio::placeholder {
   background-image: url("../img/price.png") ;
   background-repeat: no-repeat;
    background-position: right center;
+   margin-right: 15px;
+
 }
 
 

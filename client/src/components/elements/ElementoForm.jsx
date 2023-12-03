@@ -110,6 +110,8 @@ function ElementoForm() {
                 {...register("codigo")}
                 type="number"
                 className="inputElemento"
+                id="codigoElemento"
+
               />
             </div>
 

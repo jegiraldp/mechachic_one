@@ -123,18 +123,37 @@ select.inputElemento {
   background-image: url("../img/price.png") ;
   background-repeat: no-repeat;
    background-position: right center;
+   margin-right: 15px;
+
+}
+#codigoElemento::placeholder {
+  background-image: url("../img/id_code.png") ;
+  background-repeat: no-repeat;
+   background-position: right center;
+
 }
 
 #nombreElemento::placeholder {
   background-image: url("../img/spare.png") ;
   background-repeat: no-repeat;
    background-position: right center;
+   margin-right: 15px;
+
 }
 
 #descripcionElemento::placeholder {
   background-image: url("../img/description.png") ;
   background-repeat: no-repeat;
    background-position: right center;
+   margin-right: 15px;
+
+}
+
+#stockElemento::placeholder {
+  background-image: url("../img/inventory.png") ;
+  background-repeat: no-repeat;
+   background-position: right center;
+
 }
 
 

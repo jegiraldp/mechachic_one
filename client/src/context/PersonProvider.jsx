@@ -2,7 +2,7 @@ import {
     getProvidersRequest,
     createProviderRequest,
     deletePersonRequest,
-    getPersonRequest,
+    getProviderRequest,
     updatePersonRequest,
   } from "../api/persons.api.js";
   import { useContext, useEffect, useState, createContext } from "react";
@@ -59,10 +59,23 @@ import {
     }
   };
 
+  //get one Provider
+  const getProvider = async (id) => {
+    try {
+      const respon = await getProviderRequest(id);
+      return respon.data;
+    } catch (error) {
+      //console.log(error);
+      setErrors([error.response.data]);
+
+    }
+  };
+
     return (
         <PersonContext.Provider
           value={{
             getProviders,
+            getProvider,
             createProvider,
             providers,
             errors,

@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   getProviders,
+  getProvider,
   newProvider,
   getPersons,
   getPerson,
@@ -19,6 +20,9 @@ router.delete("/persons/:id", deletePerson);
 
 router.get("/providers", getProviders);
 router.post("/providers", newProvider);
+router.get("/providers/:id", getProvider);
+
+
 
 
 export default router;

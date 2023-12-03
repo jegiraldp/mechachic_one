@@ -46,23 +46,37 @@
   
   
   /*Form*/
-  
-  #nombrePersona::placeholder {
-    background-image: url("../img/Person.png") ;
+  #idProveedor::placeholder {
+    background-image: url("../img/id_code.png") ;
     background-repeat: no-repeat;
      background-position: right center;
   }
-  
-  #descripcionPersona::placeholder {
-    background-image: url("../img/description.png") ;
+  #nombreProveedor::placeholder, #apellidoProveedor::placeholder {
+    background-image: url("../img/name.png") ;
     background-repeat: no-repeat;
      background-position: right center;
+     margin-right: 15px;
   }
   
-  #valorPersona::placeholder {
-    background-image: url("../img/price.png") ;
+  #emailProveedor::placeholder {
+    background-image: url("../img/email.png") ;
     background-repeat: no-repeat;
      background-position: right center;
+     margin-right: 15px;
+  }
+  
+  #telefonoProveedor::placeholder {
+    background-image: url("../img/phone.png") ;
+    background-repeat: no-repeat;
+     background-position: right center;
+     margin-right: 15px;
+  }
+
+  #direccionProveedor::placeholder {
+    background-image: url("../img/address.png") ;
+    background-repeat: no-repeat;
+     background-position: right center;
+     margin-right: 15px;
   }
   
   

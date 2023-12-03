@@ -14,18 +14,23 @@ function ProveedorForm() {
     createProvider,
     errors: personsError,
     mensajep,
-    /* getService,
+    getProvider,
+    /*
       updateService,*/
   } = usePerson();
 
   useEffect(() => {
     const loadPerson = async () => {
       if (params.id) {
-        /*const elPersona = await getService(params.id);
-          setValue("id", parseInt(elPersona.id, 10).toString());
-          setValue("nombre", elPersona.nombre);
-          setValue("descripcion", elPersona.descripcion);
-          setValue("valor", elPersona.valor);*/
+        const elProveedor = await getProvider(params.id);
+        console.log(elProveedor);
+
+        setValue("id", parseInt(elProveedor.id, 10).toString());
+        setValue("firstName", elProveedor.firstName);
+        setValue("lastName", elProveedor.lastName);
+        setValue("email", elProveedor.email);
+        setValue("phone", elProveedor.phone);
+        setValue("address", elProveedor.address);
       }
     };
     loadPerson();
@@ -87,8 +92,6 @@ function ProveedorForm() {
               </div>
             ))}
 
-
-            
             {mensajep && <p className="elMsg">{mensajep}</p>}
             <div className="contenedorElementos">
               {params.id && <label className="lblPersona">ID</label>}

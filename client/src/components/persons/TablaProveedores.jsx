@@ -12,7 +12,7 @@ function TablaProveedores() {
 
   const results = !search
     ? providers
-    : providers.filter((dato) => dato.lastName.toLowerCase().includes(search));
+    : providers.filter((dato) => dato.firstName.toLowerCase().includes(search));
   //pagination
   const recordsPerPage = 7;
   const lastIndex = currentPage * recordsPerPage;
@@ -97,7 +97,7 @@ function TablaProveedores() {
                   <td className="opcionesPer">
                     <span
                       className="opciones"
-                      onClick={() => navigate(`/persons/edit/${per.id}`)}
+                      onClick={() => navigate(`/proveedores/edit/${per.id}`)}
                     >
                       ✏️
                     </span>
