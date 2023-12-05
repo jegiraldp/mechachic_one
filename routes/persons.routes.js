@@ -3,6 +3,8 @@ import {
   getProviders,
   getProvider,
   newProvider,
+  updateProvider,
+  deleteProvider,
   getPersons,
   getPerson,
   newPerson,
@@ -21,6 +23,10 @@ router.delete("/persons/:id", deletePerson);
 router.get("/providers", getProviders);
 router.post("/providers", newProvider);
 router.get("/providers/:id", getProvider);
+router.put("/providers/:id", updateProvider);
+router.delete("/providers/:id", deleteProvider);
+
+
 
 
 

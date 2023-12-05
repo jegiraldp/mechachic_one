@@ -1,9 +1,9 @@
 import {
     getProvidersRequest,
     createProviderRequest,
-    deletePersonRequest,
+    deleteProviderRequest,
     getProviderRequest,
-    updatePersonRequest,
+    updateProviderRequest,
   } from "../api/persons.api.js";
   import { useContext, useEffect, useState, createContext } from "react";
   
@@ -71,12 +71,35 @@ import {
     }
   };
 
+  //update provider
+  const updateProvider = async (id, newFields) => {
+    try {
+      const res = await updateProviderRequest(id, newFields);
+      setMensajep(res.data);
+    } catch (error) {
+      setErrors([error.response.data]);
+    }
+  };
+
+   //Delete provider
+   const deleteProvider = async (id) => {
+    try {
+      await deleteProviderRequest(id);
+      setProviders(providers.filter((Provider) => Provider.id !== id));
+     
+    } catch (error) {
+      return "DB error ";
+    }
+  };
+
     return (
         <PersonContext.Provider
           value={{
             getProviders,
             getProvider,
+            updateProvider,
             createProvider,
+            deleteProvider,
             providers,
             errors,
             mensajep,

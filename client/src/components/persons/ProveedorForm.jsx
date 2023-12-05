@@ -15,8 +15,7 @@ function ProveedorForm() {
     errors: personsError,
     mensajep,
     getProvider,
-    /*
-      updateService,*/
+    updateProvider,
   } = usePerson();
 
   useEffect(() => {
@@ -46,27 +45,30 @@ function ProveedorForm() {
   });
 
   const onSubmit = handleSubmit((data) => {
-    data.isProvider = 1;
-    data.isCustomer = 0;
-    data.isEmployed = 0;
-    data.isNatural = 0;
-    data.isEmpresa = 0;
+    if (params.id) {
+      updateProvider(params.id, data);
+    } else {
+      data.isProvider = 1;
+      data.isCustomer = 0;
+      data.isEmployed = 0;
+      data.isNatural = 0;
+      data.isEmpresa = 0;
 
-    createProvider(data);
-    console.log(personsError);
+      data.firstName = data.firstName.toLowerCase();
+      data.lastName = data.lastName.toLowerCase();
+      data.email = data.email.toLowerCase();
+      data.address = data.address.toLowerCase();
 
-    /*if (params.id) {
-        updateService(params.id, data);
-      } else {
-        console.log(personsError);
-        data.nombre = data.nombre.toLowerCase();
-        data.descripcion = data.descripcion.toLowerCase();
-        createService(data);
-        setValue("nombre", "");
-        setValue("id", "");
-        setValue("descripcion", "");
-        setValue("valor", "");
-      }*/
+      createProvider(data);
+
+      setValue("id", "");
+      setValue("firstName", "");
+      setValue("lastName", "");
+      setValue("email", "");
+      setValue("phone", "");
+      setValue("address", "");
+    }
+
   });
 
   return (

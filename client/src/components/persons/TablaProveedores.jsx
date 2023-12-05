@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 function TablaProveedores() {
-  const { providers, getProviders,  } = usePerson();
+  const { providers, getProviders, deleteProvider } = usePerson();
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -47,6 +47,23 @@ function TablaProveedores() {
   useEffect(() => {
     getProviders();
   }, []);
+
+  const borrarPerson = async (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      icon:"warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteProvider(id);
+        
+      }
+    });
+    
+  };
 
   return (
     <section className="persons">

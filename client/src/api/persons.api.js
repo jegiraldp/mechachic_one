@@ -9,6 +9,12 @@ export const getProvidersRequest = async () =>
 export const createProviderRequest = async (provider) =>
   await axios.post("http://localhost:4000/providers", provider);
 
+  export const updateProviderRequest = async (id, newFields) =>
+  await axios.put(`http://localhost:4000/providers/${id}`, newFields);
+
+  export const deleteProviderRequest = async (id) =>
+  await axios.delete(`http://localhost:4000/providers/${id}`);
+
 export const createPersonRequest = async (person) =>
   await axios.post("http://localhost:4000/persons", person);
 

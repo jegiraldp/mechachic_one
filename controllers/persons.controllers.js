@@ -5,16 +5,21 @@ export const getPersons = async (req, res) => {
     const [result] = await pool.query("select * from personas order by id asc");
     res.json(result);
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+    return res.status(400).json(["Error ⚠️"]);
+
   }
 };
+
+
 //providers
 export const getProviders = async (req, res) => {
   try {
     const [result] = await pool.query("select * from personas where isProvider=1 order by id asc");
     res.json(result);
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+    //return res.status(500).json({ mensaje: error.message });
+    return res.status(400).json(["Error ⚠️"]);
+
   }
 };
 
@@ -68,24 +73,44 @@ export const getProvider = async (req, res) => {
       return res.status(404).json({ mensaje: "Provider does not exists" });
     res.json(result[0]);
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+    //return res.status(500).json({ mensaje: error.message });
+    return res.status(400).json(["Error ⚠️"]);
+
   }
 };
 
 
-export const getPerson = async (req, res) => {
+
+
+export const updateProvider = async (req, res) => {
   try {
-    const [result] = await pool.query("select * from personas where id = ?", [
+    const [result] = await pool.query("update personas set ? where id = ?", [
+      req.body,
       req.params.id,
     ]);
-    if (result.length === 0)
-      return res.status(404).json({ mensaje: "Person does not exists" });
-    res.json(result[0]);
+    if (result.affectedRows === 0)
+      return res.status(404).json({ mensaje: "Provider does not exists" });
+    res.json("Provider updated");
   } catch (error) {
-    return res.status(500).json({ mensaje: error.message });
+   // return res.status(500).json({ mensaje: error.message });
+   return res.status(400).json(["Error ⚠️"]);
   }
 };
 
+
+export const deleteProvider = async (req, res) => {
+  try {
+    const [resultado] = await pool.query("delete from personas where id = ?", [
+      req.params.id,
+    ]);
+    if (resultado.affectedRows === 0)
+      return res.status(404).json({ mensaje: "Provider does not exists" });
+    res.json("Provider deleted");
+  } catch (error) {
+    return res.status(400).json(["Error ⚠️"]);
+  }
+};
+//////Person
 export const newPerson = async (req, res) => {
   try {
     const {
@@ -123,6 +148,19 @@ export const newPerson = async (req, res) => {
   }
 };
 
+export const getPerson = async (req, res) => {
+  try {
+    const [result] = await pool.query("select * from personas where id = ?", [
+      req.params.id,
+    ]);
+    if (result.length === 0)
+      return res.status(404).json({ mensaje: "Person does not exists" });
+    res.json(result[0]);
+  } catch (error) {
+    return res.status(500).json({ mensaje: error.message });
+  }
+};
+
 export const updatePerson = async (req, res) => {
   try {
     const [result] = await pool.query("update personas set ? where id = ?", [
@@ -134,6 +172,7 @@ export const updatePerson = async (req, res) => {
     res.json("Person updated");
   } catch (error) {
     return res.status(500).json({ mensaje: error.message });
+
   }
 };
 
