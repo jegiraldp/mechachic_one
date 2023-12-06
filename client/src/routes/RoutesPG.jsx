@@ -16,6 +16,7 @@ import ServicioForm from "../components/services/ServicioForm";
 import Categorias from "../pages/inventario/Categorias";
 import Servicios from "../pages/inventario/Servicios";
 import Proveedores  from "../pages/persons/Proveedores";
+import Clientes  from "../pages/persons/Clientes";
 import ProveedorForm from "../components/persons/ProveedorForm";
 
 
@@ -97,6 +98,19 @@ function RoutesPG() {
       />
       <Route
         path="/proveedores/edit/:id"
+        element={isAuthenticated ? <ProveedorForm /> : <LogIn />}
+      />
+      {/* Customers */}
+      <Route
+        path="/customers"
+        element={isAuthenticated ? <Clientes /> : <LogIn />}
+      />
+      <Route
+        path="/customers/new"
+        element={isAuthenticated ? <ProveedorForm /> : <LogIn />}
+      />
+      <Route
+        path="/customers/edit/:id"
         element={isAuthenticated ? <ProveedorForm /> : <LogIn />}
       />
       {/* Informes */}

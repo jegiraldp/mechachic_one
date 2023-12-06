@@ -10,6 +10,11 @@ import {
   newPerson,
   updatePerson,
   deletePerson,
+  getCustomers,
+  getCustomer,
+  newCustomer,
+  updateCustomer,
+  deleteCustomer,
 } from "../controllers/persons.controllers.js";
 
 const router = Router();
@@ -25,6 +30,12 @@ router.post("/providers", newProvider);
 router.get("/providers/:id", getProvider);
 router.put("/providers/:id", updateProvider);
 router.delete("/providers/:id", deleteProvider);
+
+router.get("/customers", getCustomers);
+router.post("/customers", newCustomer);
+router.get("/customers/:id", getCustomer);
+router.put("/customers/:id", updateCustomer);
+router.delete("/customers/:id", deleteCustomer);
 
 
 

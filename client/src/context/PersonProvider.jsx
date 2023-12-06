@@ -4,6 +4,11 @@ import {
     deleteProviderRequest,
     getProviderRequest,
     updateProviderRequest,
+    getCustomersRequest,
+    createCustomerRequest,
+    deleteCustomerRequest,
+    getCustomerRequest,
+    updateCustomerRequest,
   } from "../api/persons.api.js";
   import { useContext, useEffect, useState, createContext } from "react";
   
@@ -19,6 +24,8 @@ import {
   
   export const PersonContextProvider = ({ children }) => {
     const [providers, setProviders] = useState([]);
+    const [customers, setCustomers] = useState([]);
+
     const [errors, setErrors] = useState([]);
     const [mensajep, setMensajep] = useState("");
 
@@ -40,7 +47,7 @@ import {
       }
     }, [mensajep]);
 
-
+//////////////////////////////////PROVIDERS
     //cargar Providers
   async function getProviders() {
     const respues = await getProvidersRequest();
@@ -92,6 +99,58 @@ import {
     }
   };
 
+  //////////////////////////////////CUSTOMERS
+    //cargar Customers
+    async function getCustomers() {
+      const respues = await getCustomersRequest();
+      setCustomers(respues.data);
+    }
+  
+    //create
+    const createCustomer = async (Provider) => {
+      try {
+  
+        await createProviderRequest(Provider);
+        setMensajep("Provider created ✔️");
+      } catch (error) {
+        //console.log(error.response.data)
+        setErrors([error.response.data]);
+      }
+    };
+  
+    //get one 
+    const getCustomer = async (id) => {
+      try {
+        const respon = await getProviderRequest(id);
+        return respon.data;
+      } catch (error) {
+        //console.log(error);
+        setErrors([error.response.data]);
+  
+      }
+    };
+  
+    //update 
+    const updateCustomer = async (id, newFields) => {
+      try {
+        const res = await updateProviderRequest(id, newFields);
+        setMensajep(res.data);
+      } catch (error) {
+        setErrors([error.response.data]);
+      }
+    };
+  
+     //Delete 
+     const deleteCustomer = async (id) => {
+      try {
+        await deleteProviderRequest(id);
+        setProviders(providers.filter((Provider) => Provider.id !== id));
+       
+      } catch (error) {
+        return "DB error ";
+      }
+    };
+
     return (
         <PersonContext.Provider
           value={{
@@ -100,7 +159,13 @@ import {
             updateProvider,
             createProvider,
             deleteProvider,
+            getCustomers,
+            getCustomer,
+            updateCustomer,
+            createCustomer,
+            deleteCustomer,
             providers,
+            customers,
             errors,
             mensajep,
           }}

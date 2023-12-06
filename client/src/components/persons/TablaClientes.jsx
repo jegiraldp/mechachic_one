@@ -4,21 +4,21 @@ import { usePerson } from "../../context/PersonProvider";
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-function TablaProveedores() {
-  const { providers, getProviders, deleteProvider } = usePerson();
+function TablaClientes() {
+  const { customers, getCustomers, deleteCustomers } = usePerson();
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
   const results = !search
-    ? providers
-    : providers.filter((dato) => dato.firstName.toLowerCase().includes(search));
+    ? customers
+    : customers.filter((dato) => dato.firstName.toLowerCase().includes(search));
   //pagination
   const recordsPerPage = 7;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const records = results.slice(firstIndex, lastIndex);
-  const npage = Math.ceil(providers.length / recordsPerPage);
+  const npage = Math.ceil(customers.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
   //
 
@@ -45,7 +45,7 @@ function TablaProveedores() {
   };
 
   useEffect(() => {
-    getProviders();
+    getCustomers();
   }, []);
 
   const borrarPerson = async (id) => {
@@ -68,7 +68,7 @@ function TablaProveedores() {
   return (
     <section className="persons">
       <section className="persons__title">
-        <h3 className="persons__titulo">Providers</h3>
+        <h3 className="persons__titulo">Customers</h3>
         <span
           className="persons__boton"
           onClick={() => navigate("/proveedores/new")}
@@ -159,4 +159,4 @@ function TablaProveedores() {
   );
 }
 
-export default TablaProveedores;
+export default TablaClientes;
