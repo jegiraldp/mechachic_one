@@ -71,7 +71,7 @@ function TablaClientes() {
         <h3 className="persons__titulo">Customers</h3>
         <span
           className="persons__boton"
-          onClick={() => navigate("/proveedores/new")}
+          onClick={() => navigate("/clientes/new")}
         >
           <FaPlusCircle style={{ color: "darkorange" }} />
         </span>
@@ -93,6 +93,7 @@ function TablaClientes() {
             <th>ID</th>
             <th>First name</th>
             <th>Last name</th>
+            <th>Type</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Address</th>
@@ -107,6 +108,7 @@ function TablaClientes() {
                   <td>{per.id}</td>
                   <td>{letraCapital(per.firstName)}</td>
                   <td>{letraCapital(per.lastName)}</td>
+                  <td>{per.isNatural==1?"Person":"Company" }</td>
                   <td>{letraCapital(per.email)}</td>
                   <td>{letraCapital(per.phone)}</td>
                   <td>{letraCapital(per.address)}</td>
@@ -114,7 +116,7 @@ function TablaClientes() {
                   <td className="opcionesPer">
                     <span
                       className="opciones"
-                      onClick={() => navigate(`/proveedores/edit/${per.id}`)}
+                      onClick={() => navigate(`/clientes/edit/${per.id}`)}
                     >
                       ✏️
                     </span>

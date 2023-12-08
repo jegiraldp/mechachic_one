@@ -78,7 +78,7 @@ function LeftMenu() {
                 <li>
                   <NavLink
                     className="icon"
-                    to="/customers"
+                    to="/clientes"
                     activeclassname="active"
                   >
                     Customers

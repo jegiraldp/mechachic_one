@@ -4,32 +4,33 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router-dom";
 import { usePerson } from "../../context/PersonProvider";
-import { ProviderSchema } from "../../schemas/provider.schema.js";
+import { CustomerSchema } from "../../schemas/customer.schema.js";
 
-function ProveedorForm() {
+function ClienteForm() {
   const navigate = useNavigate();
   const params = useParams();
 
   const {
-    createProvider,
+    createCustomer,
     errors: personsError,
     mensajep,
-    getProvider,
-    updateProvider,
+    getCustomer,
+    updateCustomer,
   } = usePerson();
 
   useEffect(() => {
     const loadPerson = async () => {
       if (params.id) {
-        const elProveedor = await getProvider(params.id);
-        //console.log(elProveedor);
-
-        setValue("id", parseInt(elProveedor.id, 10).toString());
-        setValue("firstName", elProveedor.firstName);
-        setValue("lastName", elProveedor.lastName);
-        setValue("email", elProveedor.email);
-        setValue("phone", elProveedor.phone);
-        setValue("address", elProveedor.address);
+        let tipo=0
+        const elCliente = await getCustomer(params.id);
+        elCliente.isNatural?tipo=1:tipo=2
+        setValue("id", parseInt(elCliente.id, 10).toString());
+        setValue("tipo",parseInt(tipo, 10).toString())
+        setValue("firstName", elCliente.firstName);
+        setValue("lastName", elCliente.lastName);
+        setValue("email", elCliente.email);
+        setValue("phone", elCliente.phone);
+        setValue("address", elCliente.address);
       }
     };
     loadPerson();
@@ -41,27 +42,33 @@ function ProveedorForm() {
     handleSubmit,
     setValue,
   } = useForm({
-    resolver: zodResolver(ProviderSchema),
+    resolver: zodResolver(CustomerSchema),
   });
 
   const onSubmit = handleSubmit((data) => {
     if (params.id) {
-      updateProvider(params.id, data);
+      console.log("actualizar");
+      //updateCustomer(params.id, data);
     } else {
-      data.isProvider = 1;
-      data.isCustomer = 0;
+      data.isProvider = 0;
+      data.isCustomer = 1;
       data.isEmployed = 0;
       data.isNatural = 0;
       data.isEmpresa = 0;
+
+      if(data.tipo==1)  data.isNatural = 1;
+      if(data.tipo==2)  data.isEmpresa = 1;
 
       data.firstName = data.firstName.toLowerCase();
       data.lastName = data.lastName.toLowerCase();
       data.email = data.email.toLowerCase();
       data.address = data.address.toLowerCase();
+      
 
-      createProvider(data);
+      createCustomer(data);
 
       setValue("id", "");
+      setValue("tipo", "0");
       setValue("firstName", "");
       setValue("lastName", "");
       setValue("email", "");
@@ -74,12 +81,12 @@ function ProveedorForm() {
     <>
       <Navbar />
       <section className="persons">
-        <span className="regresar" onClick={() => navigate("/proveedores")}>
+        <span className="regresar" onClick={() => navigate("/clientes")}>
           👈Back
         </span>
         <section className="persons__title">
           <h3 className="persons__titulo">
-            {params.id ? "Edit Provider" : "Add Provider"}
+            {params.id ? "Edit Customer" : "Add Customer"}
           </h3>
         </section>
 
@@ -99,21 +106,33 @@ function ProveedorForm() {
               <input
                 className="inputPersona"
                 type="number"
-                placeholder="Enter Provider´s ID"
-                id="idProveedor"
+                placeholder="Enter Customer´s ID"
+                id="idCliente"
                 {...register("id")}
               />
             </div>
             {errors.id?.message && (
               <p className="elError">{errors.id.message}</p>
             )}
+
+            <div className="contenedorElementos">
+              {params.id && <span className="lblElemento">Type</span>}
+              <select {...register("tipo")} className="inputElemento">
+                <option value="0">Select a type..</option>
+                <option value="1">Person</option>
+                <option value="2">Company</option>
+              </select>
+            </div>
+            {errors.tipo?.message && (
+              <p className="elError">{errors.tipo.message}</p>
+            )}
             <div className="contenedorElementos">
               {params.id && <label className="lblPersona">First name</label>}
               <input
                 className="inputPersona"
-                placeholder="Enter Provider´s first name"
+                placeholder="Enter Customer´s first name"
                 {...register("firstName")}
-                id="nombreProveedor"
+                id="nombreCliente"
               />
             </div>
             {errors.firstName?.message && (
@@ -123,9 +142,9 @@ function ProveedorForm() {
               {params.id && <label className="lblPersona">Last name</label>}
               <input
                 className="inputPersona"
-                placeholder="Enter Provider´s last name"
+                placeholder="Enter Customer´s last name"
                 {...register("lastName")}
-                id="apellidoProveedor"
+                id="apellidoCliente"
               />
             </div>
             {errors.lastName?.message && (
@@ -135,9 +154,9 @@ function ProveedorForm() {
               {params.id && <label className="lblPersona">Email</label>}
               <input
                 className="inputPersona"
-                placeholder="Enter Provider´s email"
+                placeholder="Enter Customer´s email"
                 {...register("email")}
-                id="emailProveedor"
+                id="emailCliente"
               />
             </div>
             {errors.email?.message && (
@@ -148,9 +167,9 @@ function ProveedorForm() {
               {params.id && <label className="lblPersona">Phone</label>}
               <input
                 className="inputPersona"
-                placeholder="Enter Provider´s phone"
+                placeholder="Enter Customer´s phone"
                 {...register("phone")}
-                id="telefonoProveedor"
+                id="telefonoCliente"
               />
             </div>
             {errors.phone?.message && (
@@ -160,9 +179,9 @@ function ProveedorForm() {
               {params.id && <label className="lblPersona">Address</label>}
               <input
                 className="inputPersona"
-                placeholder="Enter Provider´s address"
+                placeholder="Enter Customer´s address"
                 {...register("address")}
-                id="direccionProveedor"
+                id="direccionCliente"
               />
             </div>
             {errors.address?.message && (
@@ -178,4 +197,4 @@ function ProveedorForm() {
   );
 }
 
-export default ProveedorForm;
+export default ClienteForm;

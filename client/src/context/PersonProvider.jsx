@@ -107,11 +107,11 @@ import {
     }
   
     //create
-    const createCustomer = async (Provider) => {
+    const createCustomer = async (customer) => {
       try {
   
-        await createProviderRequest(Provider);
-        setMensajep("Provider created ✔️");
+        await createCustomerRequest(customer);
+        setMensajep("Customer created ✔️");
       } catch (error) {
         //console.log(error.response.data)
         setErrors([error.response.data]);
@@ -121,7 +121,7 @@ import {
     //get one 
     const getCustomer = async (id) => {
       try {
-        const respon = await getProviderRequest(id);
+        const respon = await getCustomerRequest(id);
         return respon.data;
       } catch (error) {
         //console.log(error);

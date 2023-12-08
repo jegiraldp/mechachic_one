@@ -7,8 +7,8 @@ export const getCustomersRequest = async () =>
 export const getCustomerRequest = async (id) =>
   await axios.get(`http://localhost:4000/customers/${id}`);
 
-export const createCustomerRequest = async (provider) =>
-  await axios.post("http://localhost:4000/customers", provider);
+export const createCustomerRequest = async (customer) =>
+  await axios.post("http://localhost:4000/customers", customer);
 
 export const updateCustomerRequest = async (id, newFields) =>
   await axios.put(`http://localhost:4000/customers/${id}`, newFields);

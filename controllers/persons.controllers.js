@@ -59,7 +59,7 @@ export const newCustomer = async (req, res) => {
 
     res.json(result);
   } catch (error) {
-    return res.status(400).json(["Provider´s ID already exists ⚠️"]);
+    return res.status(400).json(["Customer´s ID already exists ⚠️"]);
     //return res.status(400).json({ mensaje: error.message });
   }
 };
@@ -70,7 +70,7 @@ export const getCustomer = async (req, res) => {
       req.params.id,
     ]);
     if (result.length === 0)
-      return res.status(404).json({ mensaje: "Provider does not exists" });
+      return res.status(404).json({ mensaje: "Customer does not exists" });
     res.json(result[0]);
   } catch (error) {
     //return res.status(500).json({ mensaje: error.message });
